@@ -1,4 +1,47 @@
-"  PLUGIN INSTALL
+"                                 GLOBAL SETTINGS
+"  ___________________________________________________________________________
+
+" Enable highlight code and theme
+syntax enable
+syntax on
+filetype plugin indent on
+
+" Highlight cursor line
+set cursorline
+
+" Set key <leader>
+let mapleader = " "
+
+" Shortcut disable highlight search words
+map <c-h> :nohl<CR>
+
+" Show number line
+set number 
+set relativenumber
+
+" Use 2 <space> every <tab>
+set tabstop=2
+
+" Use 2 <space> every indent
+set shiftwidth=2
+
+" Use <space> instead <tab>
+set expandtab
+
+" Auto indent when go to the next line
+set autoindent
+
+" Use system clipboard
+set clipboard=unnamedplus
+
+" No don't use arrow key
+nnoremap <Left> :echoe "No, use 'h'"<CR>
+nnoremap <Right> :echoe "No, use 'l'"<CR>
+nnoremap <Up> :echoe "No, use 'k'"<CR>
+nnoremap <Down> :echoe "No, use 'j'"<CR>
+
+
+"                                 PLUGIN INSTALL
 "  ___________________________________________________________________________
 
 call plug#begin('~/.config/nvim/plugins')
@@ -50,8 +93,16 @@ Plug 'prettier/vim-prettier', {
 call plug#end()
 
 
-"  PLUGIN SETTINGS
+"                             PLUGIN SETTINGS
 "  ___________________________________________________________________________
+
+" Dracula Theme
+colorscheme dracula
+
+
+" Emmet
+let g:user_emmet_leader_key='<C-x>' 
+
 
 " Nerd Tree
 " Set Shortcut 
@@ -112,10 +163,6 @@ let g:closetag_regions = {
     \ }
 
 
-" Emmet
-let g:user_emmet_leader_key='<C-x>' 
-
-
 " Lightline
 let g:lightline = {
       \ 'colorscheme': 'darcula',
@@ -129,42 +176,3 @@ let g:lightline = {
       \ 'subseparator': { 'left': '', 'right': '' },
       \ }
 
-" Dracula Theme
-colorscheme dracula
-
-
-"  GLOBAL SETTINGS
-"  ___________________________________________________________________________
-
-" Enable highlight code and theme
-syntax enable
-syntax on
-filetype plugin indent on
-
-" Disable highlight word after search
-set nohlsearch
-
-" Show number line
-set number 
-set relativenumber
-
-" Use 2 <space> every <tab>
-set tabstop=2
-
-" Use 2 <space> every indent
-set shiftwidth=2
-
-" Use <space> instead <tab>
-set expandtab
-
-" Auto indent when go to the next line
-set autoindent
-
-" Use system clipboard
-set clipboard=unnamedplus
-
-" Set key <leader>
-let mapleader = " "
-
-" Remove file command (:RemoveFile <filename>)
-" command! -complete=file -nargs=1 RemoveFile :echo 'Remove: '.'<f-args>'.' '.(delete(<f-args>) == 0 ? 'SUCCEEDED' : 'FAILED')
