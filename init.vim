@@ -20,10 +20,8 @@ map <leader>h :nohl<CR>
 set number
 set relativenumber
 
-" Use 2 <space> every <tab>
+" Set tab size = 4
 set tabstop=2
-
-" Use 2 <space> every indent
 set shiftwidth=2
 
 " Use <space> instead <tab>
@@ -42,7 +40,13 @@ autocmd BufWritePre * %s/\s\+$//e
 set splitbelow
 set splitright
 
-" No don't use arrow key
+" Set easier split navigations shortcuts
+nnoremap <c-j> <c-w><c-j>
+nnoremap <c-k> <c-w><c-k>
+nnoremap <c-l> <c-w><c-l>
+nnoremap <c-h> <c-w><c-h>
+
+" Block arrow key
 nnoremap <Left> :echoe "No, use 'h'"<CR>
 nnoremap <Right> :echoe "No, use 'l'"<CR>
 nnoremap <Up> :echoe "No, use 'k'"<CR>
@@ -86,7 +90,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 
 " Emmet - HTML Plugin
-Plug 'mattn/emmet-vim'
+" Plug 'mattn/emmet-vim'
 
 " Auto pairs  - Auto Close Brackets
 Plug 'jiangmiao/auto-pairs'
@@ -114,22 +118,23 @@ colorscheme dracula
 " Make background like terminal emulator
 hi Normal guibg=NONE ctermbg=NONE
 
+
 " Easymotion
 " Search n-chars
 map / <Plug>(easymotion-sn)
 
 
 " Fzf
-" Shortcuts
 map <leader>f :Files<CR>
-map <leader>w  :Windows<CR>
+map <leader>w :Windows<CR>
+map <leader>l :Lines<CR>
 
 " Change window
 map <s-tab> :Windows<CR>
 
 
 " Emmet
-let g:user_emmet_leader_key='<c-x>'
+" let g:user_emmet_leader_key='<c-x>'
 
 
 " Nerd Tree
