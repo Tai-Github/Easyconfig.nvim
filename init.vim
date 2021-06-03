@@ -1,5 +1,6 @@
+
 "                                 GLOBAL SETTINGS
-"  ___________________________________________________________________________
+" ============================================================================
 
 " Enable highlight code and theme
 syntax enable
@@ -13,10 +14,10 @@ set cursorline
 let mapleader = " "
 
 " Shortcut disable highlight search words
-map <c-h> :nohl<CR>
+map <leader>h :nohl<CR>
 
 " Show number line
-set number 
+set number
 set relativenumber
 
 " Use 2 <space> every <tab>
@@ -34,6 +35,13 @@ set autoindent
 " Use system clipboard
 set clipboard=unnamedplus
 
+" Remove trailing whitespace on save
+autocmd BufWritePre * %s/\s\+$//e
+
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
 " No don't use arrow key
 nnoremap <Left> :echoe "No, use 'h'"<CR>
 nnoremap <Right> :echoe "No, use 'l'"<CR>
@@ -42,7 +50,7 @@ nnoremap <Down> :echoe "No, use 'j'"<CR>
 
 
 "                                 PLUGIN INSTALL
-"  ___________________________________________________________________________
+" ===========================================================================
 
 call plug#begin('~/.config/nvim/plugins')
 
@@ -55,8 +63,12 @@ Plug 'itchyny/lightline.vim'
 " Dracula -Theme
 Plug 'dracula/vim', { 'name': 'dracula' }
 
-" Ployglot - Help Theme More Colorful
+" Ployglot - Make Theme Look Better
 Plug 'sheerun/vim-polyglot'
+
+" Fzf - Find Some Thing Faster
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " C.o.c Intellisense - Auto Complete Code Plugin
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -64,7 +76,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Vim Snippets - Snippets List
 Plug 'honza/vim-snippets'
 
-" AutoCloseTag - Auto Close Tag Plugin 
+" AutoCloseTag - Auto Close Tag Plugin
 Plug 'alvan/vim-closetag'
 
 " Surround - Easily Surround Things
@@ -76,7 +88,7 @@ Plug 'tpope/vim-commentary'
 " Emmet - HTML Plugin
 Plug 'mattn/emmet-vim'
 
-" Auto pairs  - Auto Close Brackets  
+" Auto pairs  - Auto Close Brackets
 Plug 'jiangmiao/auto-pairs'
 
 " Easymotion - Vim motion on speed
@@ -85,7 +97,7 @@ Plug 'easymotion/vim-easymotion'
 " Visual Multi - Multi Cursors
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
-" Prettier - Format Code 
+" Prettier - Format Code
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'json', 'html'] }
@@ -93,19 +105,35 @@ Plug 'prettier/vim-prettier', {
 call plug#end()
 
 
-"                             PLUGIN SETTINGS
-"  ___________________________________________________________________________
+"                               PLUGIN SETTINGS
+" ===========================================================================
 
-" Dracula Theme
+" Theme Settings
 colorscheme dracula
+
+" Make background like terminal emulator
+hi Normal guibg=NONE ctermbg=NONE
+
+" Easymotion
+" Search n-chars
+map / <Plug>(easymotion-sn)
+
+
+" Fzf
+" Shortcuts
+map <leader>f :Files<CR>
+map <leader>w  :Windows<CR>
+
+" Change window
+map <s-tab> :Windows<CR>
 
 
 " Emmet
-let g:user_emmet_leader_key='<C-x>' 
+let g:user_emmet_leader_key='<c-x>'
 
 
 " Nerd Tree
-" Set Shortcut 
+" Set Shortcut
 nnoremap <C-b> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
@@ -151,7 +179,7 @@ autocmd User EasyMotionPromptEnd silent! CocEnable
 " These are the file extensions where this plugin is enabled.
 let g:closetag_filenames = '*.html, *.jsx, *.js'
 
-" This will make the list of non-closing tags case-sensitive 
+" This will make the list of non-closing tags case-sensitive
 let g:closetag_emptyTags_caseSensitive = 0
 
 " Disables auto-close if not in a 'valid' region (based on filetype)
