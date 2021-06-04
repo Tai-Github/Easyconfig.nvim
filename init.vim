@@ -7,6 +7,9 @@ syntax enable
 syntax on
 filetype plugin indent on
 
+" Enable mouse
+set mouse=a
+
 " Highlight cursor line
 set cursorline
 
@@ -121,16 +124,13 @@ hi Normal guibg=NONE ctermbg=NONE
 
 " Easymotion
 " Search n-chars
-map / <Plug>(easymotion-sn)
+nnoremap / <Plug>(easymotion-sn)
 
 
 " Fzf
-map <leader>f :Files<CR>
-map <leader>w :Windows<CR>
-map <leader>l :Lines<CR>
-
-" Change window
-map <s-tab> :Windows<CR>
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>w :Windows<CR>
+nnoremap <leader>l :Lines<CR>
 
 
 " Emmet
