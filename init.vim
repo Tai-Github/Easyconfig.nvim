@@ -13,6 +13,7 @@
 " Basic settings
 let mapleader = " "                                  " Set key <leader>
 set mouse=a                                          " Enable mouse
+set noshowmode                                       " Disable show like --INSERT-- on left corner of the screen
 set number relativenumber                            " Show number line
 set clipboard=unnamedplus                            " Using system clipboard
 set splitbelow splitright                            " Open new split panes to right and bottom, which feels more natural
@@ -59,9 +60,6 @@ Plug 'vim-airline/vim-airline'                       " Airline - Configurable St
 Plug 'dracula/vim', { 'name': 'dracula' }            " Dracula -Theme
 Plug 'sheerun/vim-polyglot'                          " Ployglot - Make Theme Look Better
 
-Plug 'junegunn/fzf', { 'do': {-> fzf#install()} }    " Fzf - Fuzzy Finds
-Plug 'junegunn/fzf.vim'
-
 " Auto Complete Plugins
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }    " C.o.c Intellisense - Auto Complete
 Plug 'honza/vim-snippets'                            " Vim Snippets - Snippets List
@@ -73,16 +71,12 @@ Plug 'tpope/vim-commentary'                          " Commentary - Easily Comme
 Plug 'jiangmiao/auto-pairs'                          " Auto pairs  - Auto Close Brackets
 Plug 'easymotion/vim-easymotion'                     " Easymotion - Vim motion on speed
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}  " Visual Multi - Multi Cursors
+Plug 'junegunn/fzf', { 'do': {-> fzf#install()} }    " Fzf - Fuzzy Finds
+Plug 'junegunn/fzf.vim'
 Plug 'prettier/vim-prettier',                        " Prettier - Format Code
   \ {
   \   'do': 'yarn install',
-  \   'for': [
-  \     'javascript',
-  \     'typescript',
-  \     'css',
-  \     'json',
-  \     'html'
-  \   ]
+  \   'for': ['javascript','typescript','css','json','html']
   \ }
 
 call plug#end()
@@ -94,6 +88,11 @@ call plug#end()
 " Theme Settings
 colorscheme dracula
 hi Normal guibg=NONE ctermbg=NONE
+
+
+" Airline
+" Enable tabline
+let g:airline_section_z = airline#section#create(['windowswap', '%3p%% ', 'linenr', ':%3v'])
 
 
 " Fzf
