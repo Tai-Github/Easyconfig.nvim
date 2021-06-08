@@ -1,7 +1,7 @@
 
 "         _   __                _              ______            _____
-"        / | / /__  ____ _   __(_)___ ___     / ____/___  ____  / __(_)___ _
-"       /  |/ / _ \/ __ \ | / / / __ `__ \   / /   / __ \/ __ \/ /_/ / __ `/
+"        / | / /__  ____ _   __(_)___ ___     / ____/___  ____  / __(_)_____
+"       /  |/ / _ \/ __ \ | / / / __ `__ \   / /   / __ \/ __ \/ /_/ / __  /
 "      / /|  /  __/ /_/ / |/ / / / / / / /  / /___/ /_/ / / / / __/ / /_/ /
 "     /_/ |_/\___/\____/|___/_/_/ /_/ /_/   \____/\____/_/ /_/_/ /_/\__, /
 "                                                                  /____/
@@ -10,49 +10,29 @@
 " =                      G L O B A L   S E T T I N G S                       =
 " ============================================================================
 
-" Enable highlight code and theme
+" Basic settings
+let mapleader = " "                                  " Set key <leader>
+set mouse=a                                          " Enable mouse
+set number relativenumber                            " Show number line
+set clipboard=unnamedplus                            " Using system clipboard
+set splitbelow splitright                            " Open new split panes to right and bottom, which feels more natural
+autocmd BufWritePre * %s/\s\+$//e                    " Remove trailing whitespace on save
+
+" Highlight settings
 syntax enable
 syntax on
 filetype plugin indent on
-
-" Enable mouse
-set mouse=a
-
-" Highlight cursor line
-set cursorline
-
-" Set key <leader>
-let mapleader = " "
-
-" Shortcut disable highlight search words
-map <leader>h :nohl<CR>
-
-" Show number line
-set number
-set relativenumber
+set cursorline                                       " Highlight cursor line
 
 " Tab settings
 set tabstop=2
 set shiftwidth=2
+set expandtab                                        " Use <space> instead <tab>
+set autoindent                                       " Auto indent when go to the next line
 
-" Use <space> instead <tab>
-set expandtab
-
-" Auto indent when go to the next line
-set autoindent
-
-" Use system clipboard
-set clipboard=unnamedplus
-
-" Set key map on save
-noremap <leader><c-s> :w<CR>
-
-" Remove trailing whitespace on save
-autocmd BufWritePre * %s/\s\+$//e
-
-" Open new split panes to right and bottom, which feels more natural
-set splitbelow
-set splitright
+" Set keys map
+nnoremap <leader>h :nohl<CR>                         " Set key map for disable highlight
+nnoremap <leader><c-s> :w<CR>                        " Set key map on save
 
 " Set easier split navigations shortcuts
 nnoremap <c-j> <c-w><c-j>
@@ -73,53 +53,37 @@ nnoremap <Down> :echoe "No, use 'j'"<CR>
 
 call plug#begin('~/.config/nvim/plugins')
 
-" NERDTree - File Tree Viewer
-Plug 'preservim/nerdtree'
+" User Interface Plugins
+Plug 'preservim/nerdtree'                            " NERDTree - File Tree Viewer
+Plug 'vim-airline/vim-airline'                       " Airline - Configurable Status Line
+Plug 'dracula/vim', { 'name': 'dracula' }            " Dracula -Theme
+Plug 'sheerun/vim-polyglot'                          " Ployglot - Make Theme Look Better
 
-" Lightline - Configurable Status Line
-Plug 'itchyny/lightline.vim'
-
-" Dracula -Theme
-Plug 'dracula/vim', { 'name': 'dracula' }
-
-" Ployglot - Make Theme Look Better
-Plug 'sheerun/vim-polyglot'
-
-" Fzf - Find Some Thing Faster
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf', { 'do': {-> fzf#install()} }    " Fzf - Fuzzy Finds
 Plug 'junegunn/fzf.vim'
 
-" C.o.c Intellisense - Auto Complete Code Plugin
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Auto Complete Plugins
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }    " C.o.c Intellisense - Auto Complete
+Plug 'honza/vim-snippets'                            " Vim Snippets - Snippets List
 
-" Vim Snippets - Snippets List
-Plug 'honza/vim-snippets'
-
-" AutoCloseTag - Auto Close Tag Plugin
-Plug 'alvan/vim-closetag'
-
-" Surround - Easily Surround Things
-Plug 'tpope/vim-surround'
-
-" Commentary - Easily Comment Code
-Plug 'tpope/vim-commentary'
-
-" Emmet - HTML Plugin
-" Plug 'mattn/emmet-vim'
-
-" Auto pairs  - Auto Close Brackets
-Plug 'jiangmiao/auto-pairs'
-
-" Easymotion - Vim motion on speed
-Plug 'easymotion/vim-easymotion'
-
-" Visual Multi - Multi Cursors
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-
-" Prettier - Format Code
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'json', 'html'] }
+" Other Plugins
+Plug 'alvan/vim-closetag'                            " AutoCloseTag - Auto Close Tag Plugin
+Plug 'tpope/vim-surround'                            " Surround - Easily Surround Things
+Plug 'tpope/vim-commentary'                          " Commentary - Easily Comment Code
+Plug 'jiangmiao/auto-pairs'                          " Auto pairs  - Auto Close Brackets
+Plug 'easymotion/vim-easymotion'                     " Easymotion - Vim motion on speed
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}  " Visual Multi - Multi Cursors
+Plug 'prettier/vim-prettier',                        " Prettier - Format Code
+  \ {
+  \   'do': 'yarn install',
+  \   'for': [
+  \     'javascript',
+  \     'typescript',
+  \     'css',
+  \     'json',
+  \     'html'
+  \   ]
+  \ }
 
 call plug#end()
 
@@ -129,8 +93,6 @@ call plug#end()
 
 " Theme Settings
 colorscheme dracula
-
-" Make background like terminal emulator
 hi Normal guibg=NONE ctermbg=NONE
 
 
@@ -140,17 +102,10 @@ nnoremap <leader>w :Windows<CR>
 nnoremap <leader>l :Lines<CR>
 
 
-" Emmet
-" let g:user_emmet_leader_key='<c-x>'
-
-
 " Nerd Tree
-" Set Shortcut
+" Set keys map
 nnoremap <C-b> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
-
-" Start NERDTree and put the cursor back in the other window.
-" autocmd VimEnter * NERDTree | wincmd p
 
 " Start NERDTree and leave the cursor in it.
 autocmd VimEnter * NERDTree
@@ -201,18 +156,4 @@ let g:closetag_regions = {
     \ 'typescriptreact': 'jsxRegion,tsxRegion',
     \ 'javascriptreact': 'jsxRegion',
     \ }
-
-
-" Lightline
-let g:lightline = {
-      \ 'colorscheme': 'darcula',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'filename', 'modified' ] ],
-      \   'right': [ [ 'percent', 'lineinfo'  ],
-      \              [ 'filetype' ] ]
-      \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' },
-      \ }
 
