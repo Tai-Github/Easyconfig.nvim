@@ -2,10 +2,10 @@
 
 ## I. This package include:
 - ### [nerdtree](https://github.com/preservim/nerdtree)
-- ### [lightline.vim](https://github.com/itchyny/lightline.vim)
+- ### [vim-airline](https://github.com/vim-airline/vim-airline)
 - ### [dracula-theme](https://draculatheme.com/vim)
 - ### [vim-pylygot](https://github.com/sheerun/vim-polyglot)
-- ### [vim-fzf](https://github.com/junegunn/fzf.vim)
+- ### [fzf.vim](https://github.com/junegunn/fzf.vim)
 - ### [coc.nvim](https://github.com/neoclide/coc.nvim)
 - ### [vim-snippets](https://github.com/honza/vim-snippets)
 - ### [vim-closetag](https://github.com/alvan/vim-closetag)

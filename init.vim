@@ -92,7 +92,14 @@ hi Normal guibg=NONE ctermbg=NONE
 
 " Airline
 " Enable tabline
-let g:airline_section_z = airline#section#create(['windowswap', '%3p%% ', 'linenr', ':%3v'])
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
+
+" Enable powerline fonts
+let g:airline_powerline_fonts = 1
 
 
 " Fzf
@@ -105,9 +112,6 @@ nnoremap <leader>l :Lines<CR>
 " Set keys map
 nnoremap <C-b> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
-
-" Start NERDTree and leave the cursor in it.
-autocmd VimEnter * NERDTree
 
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
