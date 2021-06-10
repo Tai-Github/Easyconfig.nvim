@@ -73,11 +73,6 @@ Plug 'easymotion/vim-easymotion'                     " Easymotion - Vim motion o
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}  " Visual Multi - Multi Cursors
 Plug 'junegunn/fzf', { 'do': {-> fzf#install()} }    " Fzf - Fuzzy Finds
 Plug 'junegunn/fzf.vim'
-Plug 'prettier/vim-prettier',                        " Prettier - Format Code
-  \ {
-  \   'do': 'yarn install',
-  \   'for': ['javascript','typescript','css','json','html']
-  \ }
 
 call plug#end()
 
@@ -121,7 +116,8 @@ let g:coc_global_extensions = [
   \ 'coc-json',
   \ 'coc-html',
   \ 'coc-tsserver',
-  \ 'coc-snippets'
+  \ 'coc-snippets',
+  \ 'coc-prettier'
   \ ]
 
 " Use <tab> for trigger completion and navigate to the next complete item
@@ -136,6 +132,10 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR
 " Fix error  when using easymotion
 autocmd User EasyMotionPromptBegin silent! CocDisable
 autocmd User EasyMotionPromptEnd silent! CocEnable
+
+" Coc-Prettier
+" Set 'Format' command
+command! -nargs=0 Format :CocCommand prettier.formatFile
 
 
 " Auto Close Tag

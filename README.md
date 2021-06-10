@@ -14,7 +14,6 @@
 - ### [auto-pairs](https://github.com/jiangmiao/auto-pairs)
 - ### [vim-easymotion](https://github.com/easymotion/vim-easymotion)
 - ### [vim-visual-multi](https://github.com/mg979/vim-visual-multi)
-- ### [vim-prettier](https://github.com/prettier/vim-prettier)
 - ### And a few other settings...
 
 ## II. Installation
