@@ -20,7 +20,7 @@ set splitbelow splitright                            " Open new split panes to r
 autocmd BufWritePre * %s/\s\+$//e                    " Remove trailing whitespace on save
 
 " Highlight settings
-syntax enable
+syntax enable                                        " Enable highlight
 syntax on
 filetype plugin indent on
 set cursorline                                       " Highlight cursor line
@@ -31,9 +31,8 @@ set shiftwidth=2
 set expandtab                                        " Use <space> instead <tab>
 set autoindent                                       " Auto indent when go to the next line
 
-" Set keys map
-nnoremap <leader>h :nohl<CR>                         " Set key map for disable highlight
-nnoremap <leader><c-s> :w<CR>                        " Set key map on save
+" Set key maps
+nnoremap <leader>h :nohl<cr>                         " Set key map for disable highlight
 
 " Set easier split navigations shortcuts
 nnoremap <c-j> <c-w><c-j>
@@ -42,23 +41,32 @@ nnoremap <c-l> <c-w><c-l>
 nnoremap <c-h> <c-w><c-h>
 
 " Block arrow key
-nnoremap <Left> :echoe "No, use 'h'"<CR>
-nnoremap <Right> :echoe "No, use 'l'"<CR>
-nnoremap <Up> :echoe "No, use 'k'"<CR>
-nnoremap <Down> :echoe "No, use 'j'"<CR>
+nnoremap <Left> :echoe "No, use 'h'"<cr>
+nnoremap <Right> :echoe "No, use 'l'"<cr>
+nnoremap <Up> :echoe "No, use 'k'"<cr>
+nnoremap <Down> :echoe "No, use 'j'"<cr>
 
 
 " ===========================================================================
 " =                     P L U G I N S   I N S T A L L                       =
 " ===========================================================================
 
+" Auto install vim-plug
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+  silent !wget -P ~/.local/share/nvim/site/autoload https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugClean
+  autocmd VimEnter * PlugInstall
+endif
+
+" Install plugins
 call plug#begin('~/.config/nvim/plugins')
 
 " User Interface Plugins
 Plug 'preservim/nerdtree'                            " NERDTree - File Tree Viewer
 Plug 'vim-airline/vim-airline'                       " Airline - Configurable Status Line
-Plug 'dracula/vim', { 'name': 'dracula' }            " Dracula -Theme
-Plug 'sheerun/vim-polyglot'                          " Ployglot - Make Theme Look Better
+Plug 'dracula/vim', { 'name': 'dracula' }            " Dracula - Theme
+Plug 'sheerun/vim-polyglot'                          " Ployglot - Better Syntax Support
+Plug 'ryanoasis/vim-devicons'                        " Devicons - Add Icons To Some Plugins
 
 " Auto Complete Plugins
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }    " C.o.c Intellisense - Auto Complete
@@ -84,22 +92,20 @@ call plug#end()
 colorscheme dracula
 hi Normal guibg=NONE ctermbg=NONE
 
-
 " Airline
-" Enable powerline fonts
 let g:airline_powerline_fonts = 1
-
+let g:airline_section_z = airline#section#create(['windowswap', '%3p%% ', 'linenr', ':%3v'])
 
 " Fzf
-nnoremap <leader>f :Files<CR>
-nnoremap <leader>w :Windows<CR>
-nnoremap <leader>l :Lines<CR>
+nnoremap <leader>f :Files<cr>
+nnoremap <leader>w :Windows<cr>
+nnoremap <leader>l :Lines<cr>
 
 
 " Nerd Tree
-" Set keys map
-nnoremap <C-b> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
+" Set NERDTree keys maps
+nnoremap <c-b> :NERDTreeToggle<cr>
+nnoremap <c-f> :NERDTreeFind<cr>
 
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
@@ -122,13 +128,12 @@ let g:coc_global_extensions = [
 
 " Use <tab> for trigger completion and navigate to the next complete item
 inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
+      \ pumvisible() ? "\<c-n>" :
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 " Use <enter> to confirm the select
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<c-g>u\<cr>"
 
 " Fix error  when using easymotion
 autocmd User EasyMotionPromptBegin silent! CocDisable

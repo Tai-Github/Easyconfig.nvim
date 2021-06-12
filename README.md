@@ -1,6 +1,7 @@
 # Neovim Web Setup Package
 
 ## I. This package include:
+
 - ### [nerdtree](https://github.com/preservim/nerdtree)
 - ### [vim-airline](https://github.com/vim-airline/vim-airline)
 - ### [dracula-theme](https://draculatheme.com/vim)
@@ -19,36 +20,15 @@
 ## II. Installation
 
 ### NOTE: Make sure you have to install `nodejs`, `npm` and `yarn`.
+
 ```bash
 sudo apt install nodejs npm && sudo npm install -g yarn
 ```
 
-
 ### 1. Clone nvim setup:
+
 ```bash
 git clone https://github.com/Tai-Github/package.nvim.git ~/.config/nvim
 ```
 
-### 2. Install Vim-plug:
-```bash
-wget -P ~/.local/share/nvim/site/autoload https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-```
-
-### 3. Install PLugin
-
-- In `vim/nvim` run:
-    ```
-    :PLugCLean
-    ```
-
-- After that, in `vim/nvim` run:
-    ```
-    :PLugInstall
-    ```
-
-- If you want to get newest version of `vim/neovim` plugin, in `vim/nvim` simply run:
-    ```
-    :PLugUpdate
-    ```
-
-### 4. Learn Neovim And Plugins Command.
+### 2. Learn Neovim And Plugins Command.
