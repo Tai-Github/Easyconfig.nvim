@@ -62,11 +62,10 @@ endif
 call plug#begin('~/.config/nvim/plugins')
 
 " User Interface Plugins
-Plug 'preservim/nerdtree'                            " NERDTree - File Tree Viewer
+Plug 'preservim/nerdtree'                            " NERDTree - File System Explorer
 Plug 'vim-airline/vim-airline'                       " Airline - Configurable Status Line
 Plug 'dracula/vim', { 'name': 'dracula' }            " Dracula - Theme
 Plug 'sheerun/vim-polyglot'                          " Ployglot - Better Syntax Support
-Plug 'ryanoasis/vim-devicons'                        " Devicons - Add Icons To Some Plugins
 
 " Auto Complete Plugins
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }    " C.o.c Intellisense - Auto Complete
