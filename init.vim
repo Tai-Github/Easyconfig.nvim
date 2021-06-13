@@ -60,7 +60,7 @@ endif
 " Auto run 'PlugInstall' if there are missing plugins
 augroup plugins_check
   autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-    \| PlugInstall --sync | source $MYVIMRC | execute 'close' | execute 'Startify'
+    \| PlugInstall --sync | source $MYVIMRC | execute 'close' | execute 'Dashboard'
   \| endif
 augroup END
 
@@ -68,6 +68,7 @@ augroup END
 call plug#begin('~/.config/nvim/plugins')
 
 " User Interface Plugins
+Plug 'glepnir/dashboard-nvim'                        " Dashboard - Start Screen Plugin
 Plug 'preservim/nerdtree'                            " NERDTree - File System Explorer
 Plug 'vim-airline/vim-airline'                       " Airline - Configurable Status Line
 Plug 'dracula/vim', { 'name': 'dracula' }            " Dracula - Theme
@@ -96,6 +97,48 @@ call plug#end()
 " Theme Settings
 colorscheme dracula
 hi Normal guibg=NONE ctermbg=NONE
+
+
+" Dashboard
+" Set default fuzzy find plugin
+let g:dashboard_default_executive = 'fzf'
+
+" Disable other plugin while in dashboard
+let g:indentLine_fileTypeExclude = ['dashboard']
+
+" Custom dashboard header
+let g:dashboard_custom_header = [
+\ ' ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗',
+\ ' ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║',
+\ ' ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║',
+\ ' ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║',
+\ ' ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║',
+\ ' ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝',
+\]
+
+" Custom dashboard section
+let g:dashboard_custom_section={
+\  'a': {
+\    'description': [ '  Recently opened files ' ],
+\    'command': 'History'
+\  },
+\  'b': {
+\    'description': [ '  Find Files           ' ],
+\    'command': 'Files'
+\  },
+\  'c': {
+\    'description': [ '  Find word             ' ],
+\    'command': 'Lines'
+\  },
+\  'd': {
+\    'description': [ '  New file              ' ],
+\    'command': 'DashboardNewFile'
+\  },
+\  'e': {
+\    'description': [ '  Settings             ' ],
+\    'command': ':e $HOME/.config/nvim/init.vim'
+\  }
+\}
 
 
 " Airline
