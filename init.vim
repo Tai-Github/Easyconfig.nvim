@@ -51,12 +51,18 @@ nnoremap <Down> :echoe "No, use 'j'"<cr>
 " =                     P L U G I N S   I N S T A L L                       =
 " ===========================================================================
 
-" Auto install vim-plug
+" Auto install 'vim-plug'
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !wget -P ~/.local/share/nvim/site/autoload https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugClean
-  autocmd VimEnter * PlugInstall
 endif
+
+" Auto run 'PlugInstall' if there are missing plugins
+augroup plugins_check
+  autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+    \| PlugInstall --sync | source $MYVIMRC | execute 'close' | execute 'Startify'
+  \| endif
+augroup END
 
 " Install plugins
 call plug#begin('~/.config/nvim/plugins')
@@ -91,9 +97,11 @@ call plug#end()
 colorscheme dracula
 hi Normal guibg=NONE ctermbg=NONE
 
+
 " Airline
 let g:airline_powerline_fonts = 1
 let g:airline_section_z = airline#section#create(['windowswap', '%3p%% ', 'linenr', ':%3v'])
+
 
 " Fzf
 nnoremap <leader>f :Files<cr>
