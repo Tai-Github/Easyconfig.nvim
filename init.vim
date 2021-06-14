@@ -109,30 +109,46 @@ let g:indentLine_fileTypeExclude = ['dashboard']
 
 " Custom dashboard header
 let g:dashboard_custom_header = [
-\ ' ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗',
-\ ' ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║',
-\ ' ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║',
-\ ' ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║',
-\ ' ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║',
-\ ' ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝',
-\]
+\ '         //                 /*          ',
+\ '      ,(/(//,               *###        ',
+\ '    ((((((////.             /####%*     ',
+\ ' ,/(((((((/////*            /########   ',
+\ '/*///((((((//////.          *#########/ ',
+\ '//////((((((((((((/         *#########/.',
+\ '////////((((((((((((*       *#########/.',
+\ '/////////(/(((((((((((      *#########(.',
+\ '//////////.,((((((((((/(    *#########(.',
+\ '//////////.  /(((((((((((,  *#########(.',
+\ '(////////(.    (((((((((((( *#########(.',
+\ '(////////(.     ,#((((((((((##########(.',
+\ '((//////((.       /#((((((((##%%######(.',
+\ '((((((((((.         #(((((((####%%##%#(.',
+\ '((((((((((.          ,((((((#####%%%%%(.',
+\ ' .#(((((((.            (((((#######%%   ',
+\ '    /(((((.             .(((#%##%%/*    ',
+\ '      ,(((.               /(#%%#        ',
+\ '        ./.                 #*          '
+\ ]
+
+" Custom dashboard footer
+let g:dashboard_custom_footer = ['WELLCOME TO NEOVIM']
 
 " Custom dashboard section
 let g:dashboard_custom_section={
 \  'a': {
-\    'description': [ '  Find Files            ' ],
+\    'description': [ '  Find Files                               ' ],
 \    'command': 'Files'
 \  },
 \  'b': {
-\    'description': [ '  Opened recently files ' ],
+\    'description': [ '  Opened recently files                    ' ],
 \    'command': 'History'
 \  },
 \  'c': {
-\    'description': [ '  New file              ' ],
+\    'description': [ '  New file                                 ' ],
 \    'command': 'DashboardNewFile'
 \  },
 \  'd': {
-\    'description': [ '  Settings              ' ],
+\    'description': [ '  Settings                                 ' ],
 \    'command': ':e $HOME/.config/nvim/init.vim'
 \  }
 \}
@@ -190,8 +206,7 @@ autocmd User EasyMotionPromptBegin silent! CocDisable
 autocmd User EasyMotionPromptEnd silent! CocEnable
 
 " Coc-Prettier
-" Set 'Format' command
-command! -nargs=0 Format :CocCommand prettier.formatFile
+noremap <leader>p :CocCommand prettier.formatFile<cr>
 
 
 " Auto Close Tag
@@ -208,4 +223,3 @@ let g:closetag_regions = {
     \ 'typescriptreact': 'jsxRegion,tsxRegion',
     \ 'javascriptreact': 'jsxRegion',
     \ }
-
