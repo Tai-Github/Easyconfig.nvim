@@ -119,23 +119,19 @@ let g:dashboard_custom_header = [
 " Custom dashboard section
 let g:dashboard_custom_section={
 \  'a': {
-\    'description': [ '  Recently opened files ' ],
-\    'command': 'History'
-\  },
-\  'b': {
-\    'description': [ '  Find Files           ' ],
+\    'description': [ '  Find Files            ' ],
 \    'command': 'Files'
 \  },
-\  'c': {
-\    'description': [ '  Find word             ' ],
-\    'command': 'Lines'
+\  'b': {
+\    'description': [ '  Opened recently files ' ],
+\    'command': 'History'
 \  },
-\  'd': {
+\  'c': {
 \    'description': [ '  New file              ' ],
 \    'command': 'DashboardNewFile'
 \  },
-\  'e': {
-\    'description': [ '  Settings             ' ],
+\  'd': {
+\    'description': [ '  Settings              ' ],
 \    'command': ':e $HOME/.config/nvim/init.vim'
 \  }
 \}

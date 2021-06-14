@@ -10,6 +10,7 @@
 This is my configuration, it will help you setup neovim in 30s.
 
 ## Include Plugins
+- [dashboard-vim](https://github.com/glepnir/dashboard-nvim)
 - [nerdtree](https://github.com/preservim/nerdtree)
 - [vim-airline](https://github.com/vim-airline/vim-airline)
 - [dracula-theme](https://draculatheme.com/vim)
