@@ -1,13 +1,19 @@
 <pre>
-    ______                 ______            _____                    _
-   / ____/___ ________  __/ ____/___  ____  / __(_)_____  ____ _   __(_)___ ___
-  / __/ / __ `/ ___/ / / / /   / __ \/ __ \/ /_/ / __  / / __ \ | / / / __ `__ \
- / /___/ /_/ (__  ) /_/ / /___/ /_/ / / / / __/ / /_/ / / / / / |/ / / / / / / /
-/_____/\__,_/____/\__, /\____/\____/_/ /_/_/ /_/\__, (_)_/ /_/|___/_/_/ /_/ /_/
-                 /____/                        /____/
+                   ______                 ______            _____                    _
+                  / ____/___ ________  __/ ____/___  ____  / __(_)_____  ____ _   __(_)___ ___
+                 / __/ / __ `/ ___/ / / / /   / __ \/ __ \/ /_/ / __  / / __ \ | / / / __ `__ \
+                / /___/ /_/ (__  ) /_/ / /___/ /_/ / / / / __/ / /_/ / / / / / |/ / / / / / / /
+               /_____/\__,_/____/\__, /\____/\____/_/ /_/_/ /_/\__, (_)_/ /_/|___/_/_/ /_/ /_/
+                                /____/                        /____/
 </pre>
 
-This is my configuration, it will help you setup neovim in 30s.
+## Screenshots
+<div align="center">
+    <img width="700" src="https://raw.githubusercontent.com/Tai-Github/Images/master/Screenshot_20210615_081242.png"/>
+    <img width="700" src="https://raw.githubusercontent.com/Tai-Github/Images/master/Screenshot_20210615_081505.png"/>
+</div>
+
+<p align="center">This is my configuration, you can consult and install to experience.</p>
 
 ## Include Plugins
 - [dashboard-vim](https://github.com/glepnir/dashboard-nvim)

@@ -88,6 +88,7 @@ Plug 'easymotion/vim-easymotion'                     " Easymotion - Vim motion o
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}  " Visual Multi - Multi Cursors
 Plug 'junegunn/fzf', { 'do': {-> fzf#install()} }    " Fzf - Fuzzy Finds
 Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-fugitive'                            " Fugitive - Vim Plugin For Git
 
 call plug#end()
 
@@ -155,8 +156,19 @@ let g:dashboard_custom_section={
 
 
 " Airline
+" Enable powerline font
 let g:airline_powerline_fonts = 1
-let g:airline_section_z = airline#section#create(['windowswap', '%3p%% ', 'linenr', ':%3v'])
+
+" Extensions
+let g:airline_extensions = ['branch']
+
+" Custom section
+let g:airline_section_z = airline#section#create(['%3p%%', 'linenr', ':%3v'])
+let g:airline_section_b = airline#section#create(['branch'])
+let g:airline_section_y = ''
+let g:airline_section_error = ''
+let g:airline_section_warning = ''
+
 
 
 " Fzf
@@ -197,6 +209,12 @@ inoremap <silent><expr> <Tab>
       \ pumvisible() ? "\<c-n>" :
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
 " Use <enter> to confirm the select
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<c-g>u\<cr>"
@@ -223,3 +241,4 @@ let g:closetag_regions = {
     \ 'typescriptreact': 'jsxRegion,tsxRegion',
     \ 'javascriptreact': 'jsxRegion',
     \ }
+
