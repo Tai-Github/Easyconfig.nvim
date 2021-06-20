@@ -17,6 +17,7 @@ set noshowmode                                       " Disable show like --INSER
 set number relativenumber                            " Show number line
 set clipboard=unnamedplus                            " Using system clipboard
 set splitbelow splitright                            " Open new split panes to right and bottom, which feels more natural
+set t_Co=256
 autocmd BufWritePre * %s/\s\+$//e                    " Remove trailing whitespace on save
 
 " Highlight settings
@@ -54,10 +55,10 @@ nnoremap <Down> :echoe "No, use 'j'"<cr>
 " Auto install plugin and plugin manager script
 augroup plugins_install
   " Auto install 'vim-plug'
-  if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-    silent !wget -P ~/.local/share/nvim/site/autoload https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugClean
-  endif
+  " if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+  "   silent !wget -P ~/.local/share/nvim/site/autoload https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  "   autocmd VimEnter * PlugClean
+  " endif
 
   " Auto run 'PlugInstall' if there are missing plugins
   autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
@@ -66,13 +67,14 @@ augroup plugins_install
 augroup END
 
 " Install plugins
-call plug#begin('~/.config/nvim/plugins')
+call plug#begin('~/.local/nvim/plugins')
 
 " User Interface Plugins
+Plug 'joshdick/onedark.vim'                          " Onedark - Theme
 Plug 'glepnir/dashboard-nvim'                        " Dashboard - Start Screen Plugin
 Plug 'preservim/nerdtree'                            " NERDTree - File System Explorer
 Plug 'vim-airline/vim-airline'                       " Airline - Configurable Status Line
-Plug 'dracula/vim', { 'name': 'dracula' }            " Dracula - Theme
+Plug 'vim-airline/vim-airline-themes'
 Plug 'sheerun/vim-polyglot'                          " Ployglot - Better Syntax Support
 
 " Auto Complete Plugins
@@ -97,9 +99,12 @@ call plug#end()
 " ===========================================================================
 
 " Theme Settings
-colorscheme dracula
+colorscheme onedark
+hi Comment cterm=italic
 hi Normal guibg=NONE ctermbg=NONE
-
+let g:onedark_hide_endofbuffer=1
+let g:onedark_terminal_italics=1
+let g:onedark_termcolors=256
 
 " Dashboard
 " Set default fuzzy find plugin
@@ -158,6 +163,9 @@ let g:dashboard_custom_section={
 " Airline
 " Enable powerline font
 let g:airline_powerline_fonts = 1
+
+" Set default theme
+let g:airline_theme = "deus"
 
 " Extensions
 let g:airline_extensions = ['branch']
