@@ -72,7 +72,7 @@ call plug#begin('~/.local/share/nvim/plugins')
 " User Interface Plugins
 Plug 'joshdick/onedark.vim'                          " Onedark - Theme
 Plug 'preservim/nerdtree'                            " NERDTree - File System Explorer
-Plug 'itchyny/lightline.vim'
+Plug 'itchyny/lightline.vim'                         " Lightline - Vim Status Line
 Plug 'sheerun/vim-polyglot'                          " Ployglot - Better Syntax Support
 
 " Auto Complete Plugins
@@ -176,9 +176,6 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<c-g>u\<cr
 " Fix error  when using easymotion
 autocmd User EasyMotionPromptBegin silent! CocDisable
 autocmd User EasyMotionPromptEnd silent! CocEnable
-
-" Coc-Prettier
-noremap <leader>p :CocCommand prettier.formatFile<cr>
 
 
 " Auto Close Tag

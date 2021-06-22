@@ -1,17 +1,9 @@
-
-## Screenshots
-<div align="center">
-    <img width="700" src="https://raw.githubusercontent.com/Tai-Github/Images/master/Screenshot_20210615_081242.png"/>
-    <img width="700" src="https://raw.githubusercontent.com/Tai-Github/Images/master/Screenshot_20210615_081505.png"/>
-</div>
-
 <p align="center">This is my configuration, you can consult and install to experience.</p>
 
 ## Include Plugins
-- [dashboard-vim](https://github.com/glepnir/dashboard-nvim)
+- [onedark](https://github.com/joshdick/onedark.vim)
+- [lightline](https://github.com/itchyny/lightline.vim)
 - [nerdtree](https://github.com/preservim/nerdtree)
-- [vim-airline](https://github.com/vim-airline/vim-airline)
-- [dracula-theme](https://draculatheme.com/vim)
 - [vim-pylygot](https://github.com/sheerun/vim-polyglot)
 - [coc.nvim](https://github.com/neoclide/coc.nvim)
 - [vim-snippets](https://github.com/honza/vim-snippets)
