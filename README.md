@@ -1,4 +1,4 @@
-<h3 align="center">This is my configuration, you can consult and install to experience.</h3>
+## <h2>This is my configuration, you can consult and install to experience.</h2>
 
 ## Include Plugins
 - [onedark](https://github.com/joshdick/onedark.vim)
@@ -18,14 +18,20 @@
 
 ## Install
 
-- NOTE: Make sure you have to install `nodejs`, `npm` and `yarn`.
+## 1. NOTE: Make sure you have to install `nodejs`, `npm` and `yarn`.
+
+- Ubuntu
 ```bash
 sudo apt install nodejs npm && sudo npm install -g yarn
 ```
+- Arch
+```
+sudo pacman -Sy nodejs npm && sudo npm install -g yarn
+```
 
-- Clone this config.
+## 2. Clone this config.
 ```bash
 git clone https://github.com/Tai-Github/package.nvim.git ~/.config/nvim
 ```
 
-- Run neovim and wait to install some plugins.
+## 3. Run neovim and wait to install some plugins.
