@@ -1,7 +1,7 @@
 ## <h2>This is my configuration, you can consult and install to experience.</h2>
 
 ## Include Plugins
-- [onedark](https://github.com/joshdick/onedark.vim)
+- [dracula-vim](https://github.com/dracula/vim)
 - [lightline](https://github.com/itchyny/lightline.vim)
 - [nerdtree](https://github.com/preservim/nerdtree)
 - [vim-pylygot](https://github.com/sheerun/vim-polyglot)

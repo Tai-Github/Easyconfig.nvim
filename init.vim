@@ -1,4 +1,3 @@
-
 "         _   __                _              ______            _____
 "        / | / /__  ____ _   __(_)___ ___     / ____/___  ____  / __(_)_____
 "       /  |/ / _ \/ __ \ | / / / __ `__ \   / /   / __ \/ __ \/ /_/ / __  /
@@ -62,7 +61,7 @@ augroup plugins_install
 
   " Auto run 'PlugInstall' if there are missing plugins
   autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-    \| PlugInstall --sync | source $MYVIMRC | execute 'close'
+    \| PlugClean | PlugInstall --sync | source $MYVIMRC | execute 'close'
   \| endif
 augroup END
 
@@ -70,7 +69,7 @@ augroup END
 call plug#begin('~/.local/share/nvim/plugins')
 
 " User Interface Plugins
-Plug 'joshdick/onedark.vim'                          " Onedark - Theme
+Plug 'dracula/vim', { 'name': 'dracula' }            " Dracula - Theme
 Plug 'preservim/nerdtree'                            " NERDTree - File System Explorer
 Plug 'itchyny/lightline.vim'                         " Lightline - Vim Status Line
 Plug 'sheerun/vim-polyglot'                          " Ployglot - Better Syntax Support
@@ -97,17 +96,13 @@ call plug#end()
 " ===========================================================================
 
 " Theme Settings
-colorscheme onedark
-hi Comment cterm=italic
+colorscheme dracula
 hi Normal guibg=NONE ctermbg=NONE
-let g:onedark_hide_endofbuffer=1
-let g:onedark_terminal_italics=1
-let g:onedark_termcolors=256
 
 
 " Lightline
 let g:lightline = {
-\ 'colorscheme': 'onedark',
+\ 'colorscheme': 'dracula',
 \ 'active': {
 \   'left': [ [ 'mode', 'paste' ],
 \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
@@ -120,6 +115,17 @@ let g:lightline = {
 \   'gitbranch': 'fugitive#head'
 \ },
 \ }
+
+augroup disable_lightline_on_nerdtree
+    au!
+    au FileType nerdtree call s:disable_lightline_on_nerdtree()
+    au WinEnter,BufWinEnter,TabEnter * call s:disable_lightline_on_nerdtree()
+augroup END
+
+fu s:disable_lightline_on_nerdtree() abort
+    let nerdtree_winnr = index(map(range(1, winnr('$')), {_,v -> getbufvar(winbufnr(v), '&ft')}), 'nerdtree') + 1
+    call timer_start(0, {-> nerdtree_winnr && setwinvar(nerdtree_winnr, '&stl', '%#Normal#')})
+endfu
 
 
 " Fzf
