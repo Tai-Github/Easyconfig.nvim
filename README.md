@@ -1,4 +1,4 @@
-<p align="center">This is my configuration, you can consult and install to experience.</p>
+<h3 align="center">This is my configuration, you can consult and install to experience.</h3>
 
 ## Include Plugins
 - [onedark](https://github.com/joshdick/onedark.vim)
