@@ -17,7 +17,7 @@ set noshowmode                                       " Disable show like --INSER
 set number relativenumber                            " Show number line
 set clipboard=unnamedplus                            " Using system clipboard
 set splitbelow splitright                            " Open new split panes to right and bottom, which feels more natural
-set t_Co=256
+set t_Co=256                                         " Set color terminal = 256
 autocmd BufWritePre * %s/\s\+$//e                    " Remove trailing whitespace on save
 
 " Highlight settings
@@ -55,26 +55,24 @@ nnoremap <Down> :echoe "No, use 'j'"<cr>
 " Auto install plugin and plugin manager script
 augroup plugins_install
   " Auto install 'vim-plug'
-  " if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-  "   silent !wget -P ~/.local/share/nvim/site/autoload https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  "   autocmd VimEnter * PlugClean
-  " endif
+  if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+    silent !curl https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim > ~/.local/share/nvim/site/autoload/plug.vim
+    autocmd VimEnter * PlugClean
+  endif
 
   " Auto run 'PlugInstall' if there are missing plugins
   autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-    \| PlugInstall --sync | source $MYVIMRC | execute 'close' | execute 'Dashboard'
+    \| PlugInstall --sync | source $MYVIMRC | execute 'close'
   \| endif
 augroup END
 
 " Install plugins
-call plug#begin('~/.local/nvim/plugins')
+call plug#begin('~/.local/share/nvim/plugins')
 
 " User Interface Plugins
 Plug 'joshdick/onedark.vim'                          " Onedark - Theme
-Plug 'glepnir/dashboard-nvim'                        " Dashboard - Start Screen Plugin
 Plug 'preservim/nerdtree'                            " NERDTree - File System Explorer
-Plug 'vim-airline/vim-airline'                       " Airline - Configurable Status Line
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 Plug 'sheerun/vim-polyglot'                          " Ployglot - Better Syntax Support
 
 " Auto Complete Plugins
@@ -106,77 +104,22 @@ let g:onedark_hide_endofbuffer=1
 let g:onedark_terminal_italics=1
 let g:onedark_termcolors=256
 
-" Dashboard
-" Set default fuzzy find plugin
-let g:dashboard_default_executive = 'fzf'
 
-" Disable other plugin while in dashboard
-let g:indentLine_fileTypeExclude = ['dashboard']
-
-" Custom dashboard header
-let g:dashboard_custom_header = [
-\ '         //                 /*          ',
-\ '      ,(/(//,               *###        ',
-\ '    ((((((////.             /####%*     ',
-\ ' ,/(((((((/////*            /########   ',
-\ '/*///((((((//////.          *#########/ ',
-\ '//////((((((((((((/         *#########/.',
-\ '////////((((((((((((*       *#########/.',
-\ '/////////(/(((((((((((      *#########(.',
-\ '//////////.,((((((((((/(    *#########(.',
-\ '//////////.  /(((((((((((,  *#########(.',
-\ '(////////(.    (((((((((((( *#########(.',
-\ '(////////(.     ,#((((((((((##########(.',
-\ '((//////((.       /#((((((((##%%######(.',
-\ '((((((((((.         #(((((((####%%##%#(.',
-\ '((((((((((.          ,((((((#####%%%%%(.',
-\ ' .#(((((((.            (((((#######%%   ',
-\ '    /(((((.             .(((#%##%%/*    ',
-\ '      ,(((.               /(#%%#        ',
-\ '        ./.                 #*          '
-\ ]
-
-" Custom dashboard footer
-let g:dashboard_custom_footer = ['WELLCOME TO NEOVIM']
-
-" Custom dashboard section
-let g:dashboard_custom_section={
-\  'a': {
-\    'description': [ '  Find Files                               ' ],
-\    'command': 'Files'
-\  },
-\  'b': {
-\    'description': [ '  Opened recently files                    ' ],
-\    'command': 'History'
-\  },
-\  'c': {
-\    'description': [ '  New file                                 ' ],
-\    'command': 'DashboardNewFile'
-\  },
-\  'd': {
-\    'description': [ '  Settings                                 ' ],
-\    'command': ':e $HOME/.config/nvim/init.vim'
-\  }
-\}
-
-
-" Airline
-" Enable powerline font
-let g:airline_powerline_fonts = 1
-
-" Set default theme
-let g:airline_theme = "deus"
-
-" Extensions
-let g:airline_extensions = ['branch']
-
-" Custom section
-let g:airline_section_z = airline#section#create(['%3p%%', 'linenr', ':%3v'])
-let g:airline_section_b = airline#section#create(['branch'])
-let g:airline_section_y = ''
-let g:airline_section_error = ''
-let g:airline_section_warning = ''
-
+" Lightline
+let g:lightline = {
+\ 'colorscheme': 'onedark',
+\ 'active': {
+\   'left': [ [ 'mode', 'paste' ],
+\             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+\   'right': [ [ 'lineinfo', 'percent' ],
+\              [ 'filetype' ] ]
+\ },
+\ 'separator': { 'left': '', 'right': '' },
+\ 'subseparator': { 'left': '', 'right': '' },
+\ 'component_function': {
+\   'gitbranch': 'fugitive#head'
+\ },
+\ }
 
 
 " Fzf
@@ -193,6 +136,10 @@ let g:fzf_preview_window = []
 nnoremap <c-b> :NERDTreeToggle<cr>
 nnoremap <c-f> :NERDTreeFind<cr>
 
+" Start NERDTree when Vim is started without file arguments.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
@@ -208,8 +155,7 @@ let g:coc_global_extensions = [
   \ 'coc-json',
   \ 'coc-html',
   \ 'coc-tsserver',
-  \ 'coc-snippets',
-  \ 'coc-prettier'
+  \ 'coc-snippets'
   \ ]
 
 " Use <tab> for trigger completion and navigate to the next complete item
