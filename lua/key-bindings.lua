@@ -1,6 +1,9 @@
 -- Disable search highlight
 vim.api.nvim_set_keymap('n', '<Leader>h', ':nohl<CR>', {silent = true})
 
+-- Save key
+vim.api.nvim_set_keymap('n', '<Leader>s', ':w<CR>', {noremap = true, silent = true})
+
 -- Use <C-c> instead <esc>
 vim.api.nvim_set_keymap('i', '<C-c', '<Esc>', {noremap = true, silent = true})
 

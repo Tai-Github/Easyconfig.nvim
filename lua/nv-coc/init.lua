@@ -6,7 +6,9 @@ vim.g.coc_global_extensions = {
   'coc-html',
   'coc-css',
   'coc-tsserver',
-  'coc-snippets'
+  'coc-json',
+  'coc-snippets',
+  'coc-emmet'
 }
 
 -- Source this file will have <Tab> and <S-Tab> to navigate in complete menu
