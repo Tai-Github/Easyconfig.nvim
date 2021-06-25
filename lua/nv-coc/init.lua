@@ -10,4 +10,4 @@ vim.g.coc_global_extensions = {
 }
 
 -- Source this file will have <Tab> and <S-Tab> to navigate in complete menu
-vim.cmd('source '..vim.fn.stdpath('config')..'/vimscripts/coc-functions.vim')
+vim.cmd('source '..vim.fn.stdpath('config')..'/vimscripts/plugins/coc/function.vim')

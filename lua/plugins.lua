@@ -10,7 +10,7 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
   
   -- GUI plugins
-  use {'dracula/vim', as = 'dracula'}
+  use 'ghifarit53/tokyonight-vim'
   use 'kyazdani42/nvim-web-devicons'
   use 'kyazdani42/nvim-tree.lua'
   use 'romgrk/barbar.nvim'
@@ -23,7 +23,7 @@ return require('packer').startup(function()
   -- Auto completed
   use {'neoclide/coc.nvim', branch = 'release'}
   use 'honza/vim-snippets'
-
+ 
   -- Other
   use 'alvan/vim-closetag'
   use 'tpope/vim-surround'
