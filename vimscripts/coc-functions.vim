@@ -1,12 +1,3 @@
-" Install Extensions
-let g:coc_global_extensions = [
-  \ 'coc-css',
-  \ 'coc-json',
-  \ 'coc-html',
-  \ 'coc-tsserver',
-  \ 'coc-snippets'
-  \ ]
-
 " Use <tab> for trigger completion and navigate to the next complete item
 inoremap <silent><expr> <Tab>
       \ pumvisible() ? "\<c-n>" :
@@ -21,8 +12,3 @@ endfunction
 
 " Use <enter> to confirm the select
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<c-g>u\<cr>"
-
-" Fix error  when using easymotion
-autocmd User EasyMotionPromptBegin silent! CocDisable
-autocmd User EasyMotionPromptEnd silent! CocEnable
-
