@@ -11,5 +11,22 @@ vim.g.coc_global_extensions = {
   'coc-emmet'
 }
 
--- Source this file will have <Tab> and <S-Tab> to navigate in complete menu
-vim.cmd('source '..vim.fn.stdpath('config')..'/vimscripts/plugins/coc/function.vim')
+-- Key bindings
+vim.api.nvim_set_keymap(
+  'i',
+  '<Tab>',
+  'pumvisible() ? "\\<C-n>" : "\\<Tab>"',
+  {noremap = true, silent = true, expr = true}
+)
+vim.api.nvim_set_keymap(
+  'i',
+  '<S-Tab>',
+  'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"',
+  {noremap = true, silent = true, expr = true}
+)
+vim.api.nvim_set_keymap(
+  'i',
+  '<CR>',
+  'pumvisible() ? coc#_select_confirm() : "\\<C-g>u\\<CR>\\<C-r>=coc#on_enter()\\<CR>"',
+  {noremap = true, silent = true, expr = true}
+)

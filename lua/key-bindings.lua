@@ -2,10 +2,7 @@
 vim.api.nvim_set_keymap('n', '<Leader>h', ':nohl<CR>', {silent = true})
 
 -- Save key
-vim.api.nvim_set_keymap('n', '<Leader>s', ':w<CR>', {noremap = true, silent = true})
-
--- Use <C-c> instead <esc>
-vim.api.nvim_set_keymap('i', '<C-c', '<Esc>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>w', ':w<CR>', {noremap = true, silent = true})
 
 -- Better split window movement
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', {noremap = true, silent = true})
