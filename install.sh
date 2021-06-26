@@ -85,12 +85,16 @@ remove_old_config() {
 }
 
 install_packer() {
+  echo "Install packer.nvim(neovim plugin manager...)"
   git clone https://github.com/wbthomason/packer.nvim \
     ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 }
 
 clone_config() {
+  echo "Clone config"
   git clone https://github.com/Tai-Github/nvim ~/.config/nvim
+  [ -e "$HOME/.config/nvim/install.sh" ] && rm "$HOME/.config/nvim/install.sh"
+  [ -e "$HOME/.config/nvim/README.md" ] && rm "$HOME/.config/nvim/README.md"
 }
 
 
