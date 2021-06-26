@@ -1,5 +1,5 @@
 {
-  // Set completion menu icons
+  /* Set completion menu icons */
   "suggest.completionItemKindLabels": {
     "method": "  ",
     "function": "  ",

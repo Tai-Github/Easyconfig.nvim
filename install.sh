@@ -84,6 +84,11 @@ remove_old_config() {
   mv ~/.config/nvim ~/.config/nvim.old
 }
 
+install_packer() {
+  git clone https://github.com/wbthomason/packer.nvim \
+    ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+}
+
 clone_config() {
   git clone https://github.com/Tai-Github/nvim ~/.config/nvim
 }
@@ -120,14 +125,15 @@ installer() {
   if [ -e "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then
     echo "Packer.nvim(neovim plugins manager) already installed..."
   else
-    installpacker
+    install_packer
   fi
 
   clone_config
 
   echo "-------------------------------------------------------------------------------------------"
   echo "Install success."
-  echo "Before start neovim, I recommend you also install and activate a font from here: https://github.com/ryanoasis/nerd-fonts."
+  echo "Before start neovim, I recommend you also install and activate a font \
+    from here: https://github.com/ryanoasis/nerd-fonts."
   echo "If you don't have nerd font, some UI will be broken."
   echo "Enjoy!"
 }
