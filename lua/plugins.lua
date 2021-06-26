@@ -1,8 +1,8 @@
 -- Auto install packer.nvim if it missing
-local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = FN.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  vim.fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
+if FN.empty(FN.glob(install_path)) > 0 then
+  FN.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
 return require('packer').startup(function()
@@ -15,14 +15,14 @@ return require('packer').startup(function()
   use 'kyazdani42/nvim-tree.lua'
   use 'romgrk/barbar.nvim'
   use 'sheerun/vim-polyglot'
-  use {
-    'glepnir/galaxyline.nvim',
-    branch = main
-  }
+  use {'glepnir/galaxyline.nvim', branch = main}
 
   -- Auto completed
   use {'neoclide/coc.nvim', branch = 'release'}
   use 'honza/vim-snippets'
+
+  -- Fuzzy find
+  use 'kien/ctrlp.vim'
 
   -- Other
   use 'alvan/vim-closetag'

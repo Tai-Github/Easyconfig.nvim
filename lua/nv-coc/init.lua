@@ -1,8 +1,8 @@
 -- Disable show messages
-vim.cmd('set shortmess+=c')
+CMD('set shortmess+=c')
 
 -- Install extentions
-vim.g.coc_global_extensions = {
+G.coc_global_extensions = {
   'coc-html',
   'coc-css',
   'coc-tsserver',
@@ -12,21 +12,20 @@ vim.g.coc_global_extensions = {
 }
 
 -- Key bindings
-vim.api.nvim_set_keymap(
-  'i',
-  '<Tab>',
-  'pumvisible() ? "\\<C-n>" : "\\<Tab>"',
-  {noremap = true, silent = true, expr = true}
-)
-vim.api.nvim_set_keymap(
-  'i',
-  '<S-Tab>',
-  'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"',
-  {noremap = true, silent = true, expr = true}
-)
-vim.api.nvim_set_keymap(
-  'i',
-  '<CR>',
-  'pumvisible() ? coc#_select_confirm() : "\\<C-g>u\\<CR>\\<C-r>=coc#on_enter()\\<CR>"',
-  {noremap = true, silent = true, expr = true}
-)
+-- <Tab> to navigate the completion list
+KEYMAP('i', '<Tab>',
+    'pumvisible() ? "\\<C-n>" : "\\<Tab>"',
+    {noremap = true, silent = true, expr = true})
+
+-- <S-Tab> to navigate the completion list
+KEYMAP('i', '<S-Tab>',
+    'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"',
+    {noremap = true, silent = true, expr = true})
+
+-- <CR> to confirm completion
+KEYMAP('i', '<CR>',
+    'pumvisible() ? coc#_select_confirm() : "\\<C-g>u\\<CR>\\<C-r>=coc#on_enter()\\<CR>"',
+    {noremap = true, silent = true, expr = true})
+
+-- <Leader>p to format code
+KEYMAP('n', '<Leader>p', ':call CocAction(\'format\')<CR>', {noremap = true, silent = true})

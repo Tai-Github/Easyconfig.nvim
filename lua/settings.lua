@@ -1,26 +1,26 @@
 -- Basic settings
-vim.g.mapleader = ' '                          -- Set key <leader>
-vim.o.mouse = 'a'                              -- Enable your mouse
-vim.o.fileencoding = "utf-8"                   -- The encoding written to file
-vim.o.showmode = false                         -- Disable show like --INSERT-- on left corner of the screen
-vim.wo.number = true                           -- Set number lines
-vim.wo.relativenumber = true                   -- Set relative number lines
-vim.o.clipboard = 'unnamedplus'                -- Using system clipboard
-vim.o.splitbelow = true                        -- Horizontal splits will automatically be below
-vim.o.splitright = true                        -- Vertical splits will automatically be to the right
-vim.o.showtabline = 2                          -- Always show tablines
-vim.o.swapfile = false                         -- Disable swap files
-vim.o.backup = false                           -- Disable backup
-vim.o.writebackup = false                      -- Disable write backup
-vim.cmd('autocmd BufWritePre * %s/\\s\\+$//e') -- Remove trailing whitespace on save
+G.mapleader = ' '                          -- Set key <leader>
+O.mouse = 'a'                              -- Enable your mouse
+O.fileencoding = "utf-8"                   -- The encoding written to file
+O.showmode = false                         -- Disable show like --INSERT-- on left corner of the screen
+WO.number = true                           -- Set number lines
+WO.relativenumber = true                   -- Set relative number lines
+O.clipboard = 'unnamedplus'                -- Using system clipboard
+O.splitbelow = true                        -- Horizontal splits will automatically be below
+O.splitright = true                        -- Vertical splits will automatically be to the right
+O.showtabline = 2                          -- Always show tablines
+O.swapfile = false                         -- Disable swap files
+O.backup = false                           -- Disable backup
+O.writebackup = false                      -- Disable write backup
+CMD('autocmd BufWritePre * %s/\\s\\+$//e') -- Remove trailing whitespace on save
 
 -- Syntax highlight settings
-vim.cmd('syntax on')                           -- Enable syntax highlight
-vim.wo.cursorline = true                       -- Enable highlighting of the current line
-vim.o.termguicolors = true                     -- Set term gui colors most terminals support this
+CMD('syntax on')                           -- Enable syntax highlight
+WO.cursorline = true                       -- Enable highlighting of the current line
+O.termguicolors = true                     -- Set term gui colors most terminals support this
 
 -- Tab settings
-vim.cmd('set expandtab')                       -- Converts tabs to spaces
-vim.cmd('set tabstop=2')                       -- Insert 2 spaces for a tab
-vim.cmd('set shiftwidth=2')                    -- Change the number of space characters inserted for indentation
-vim.cmd('set autoindent')                      -- Auto indent when go to the next line
+CMD('set expandtab')                       -- Converts tabs to spaces
+CMD('set tabstop=2')                       -- Insert 2 spaces for a tab
+CMD('set shiftwidth=2')                    -- Change the number of space characters inserted for indentation
+CMD('set autoindent')                      -- Auto indent when go to the next line

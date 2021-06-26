@@ -2,12 +2,12 @@ local utils = {}
 
 function utils.is_buffer_empty()
     -- Check whether the current buffer is empty
-    return vim.fn.empty(vim.fn.expand('%:t')) == 1
+    return FN.empty(vim.fn.expand('%:t')) == 1
 end
 
 function utils.has_width_gt(cols)
     -- Check if the windows width is greater than a given number of columns
-    return vim.fn.winwidth(0) / 2 > cols
+    return FN.winwidth(0) / 2 > cols
 end
 
 local gl = require('galaxyline')
@@ -56,7 +56,7 @@ local mode_color = function()
         R = colors.red,
     }
 
-    local color = mode_colors[vim.fn.mode()]
+    local color = mode_colors[FN.mode()]
 
     if color == nil then
         color = colors.red
@@ -87,9 +87,9 @@ gls.left[2] = {
                 R = 'REPLACE',
             }
             vim.api.nvim_command('hi GalaxyViMode guifg='..mode_color())
-            local alias_mode = alias[vim.fn.mode()]
+            local alias_mode = alias[FN.mode()]
             if alias_mode == nil then
-                alias_mode = vim.fn.mode()
+                alias_mode = FN.mode()
             end
             return alias_mode..' '
         end,

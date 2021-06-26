@@ -6,6 +6,7 @@
 --                                                                /____/
 
 -- Basic configs
+require('global')
 require('settings')
 require('key-bindings')
 require('plugins')
