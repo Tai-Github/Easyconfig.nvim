@@ -12,7 +12,7 @@ KEYMAP('n', '<M-5>', ':BufferGoto 5<CR>', {noremap = true, silent = true})
 KEYMAP('n', '<M-6>', ':BufferGoto 6<CR>', {noremap = true, silent = true})
 KEYMAP('n', '<M-7>', ':BufferGoto 7<CR>', {noremap = true, silent = true})
 KEYMAP('n', '<M-8>', ':BufferGoto 8<CR>', {noremap = true, silent = true})
-KEYMAP('n', '<M-9>', ':BufferLast<CR>', {noremap = true, silent = true})
+KEYMAP('n', '<M-9>', ':BufferLast  <CR>', {noremap = true, silent = true})
 
 -- Close
 KEYMAP('n', '<M-x>', ':BufferClose<CR>', {noremap = true, silent = true})
