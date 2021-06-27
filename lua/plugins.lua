@@ -14,8 +14,8 @@ return require('packer').startup(function()
   use 'kyazdani42/nvim-web-devicons'
   use 'kyazdani42/nvim-tree.lua'
   use 'romgrk/barbar.nvim'
-  use 'sheerun/vim-polyglot'
   use {'glepnir/galaxyline.nvim', branch = main}
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
   -- Auto completed
   use {'neoclide/coc.nvim', branch = 'release'}
@@ -24,11 +24,13 @@ return require('packer').startup(function()
   -- Fuzzy find
   use 'kien/ctrlp.vim'
 
+  -- Live server
+  use {'turbio/bracey.vim', run = 'npm install --prefix server'}
+
   -- Other
   use 'alvan/vim-closetag'
   use 'tpope/vim-surround'
   use 'tpope/vim-commentary'
   use 'jiangmiao/auto-pairs'
   use 'norcalli/nvim-colorizer.lua'
-  use 'easymotion/vim-easymotion'
 end)

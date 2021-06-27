@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Exit when command fails
+set -o errexit
+
 # Install pip functions
 install_pip_on_ubuntu()
 {
@@ -164,7 +167,7 @@ installer()
   echo "-------------------------------------------------------------------------------------------"
   clone_config
 
-  # Success install
+  # Plugin install
   echo "-------------------------------------------------------------------------------------------"
   echo "Install success."
   echo "Before start neovim, you need to install and activate a font from here: https://github.com/ryanoasis/nerd-fonts."
