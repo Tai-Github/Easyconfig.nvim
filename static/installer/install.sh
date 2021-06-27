@@ -1,26 +1,31 @@
 #!/bin/sh
 
 # Install pip functions
-install_pip_on_ubuntu() {
+install_pip_on_ubuntu()
+{
   sudo apt update
   sudo apt install python3-pip
 }
 
-install_pip_on_arch() {
+install_pip_on_arch()
+{
   sudo pacman -Sy python-pip
 }
 
-install_pip_on_fedora() {
+install_pip_on_fedora()
+{
   sudo dnf check-update
   sudo dnf install -y pip
 }
 
-install_pip_on_gentoo() {
+install_pip_on_gentoo()
+{
   sudo emerge --sync
   sudo emerge -avn dev-python/pip
 }
 
-install_pip() {
+install_pip()
+{
   echo "Installing pip..."
 	[ -n "$(cat /etc/os-release | grep Ubuntu)" ] && install_pip_on_ubuntu
 	[ -f "/etc/arch-release" ] && install_pip_on_arch
@@ -29,30 +34,41 @@ install_pip() {
   python3 -m pip install --user --upgrade pynvim
 }
 
-ask_install_pip() {
+ask_install_pip()
+{
   echo "Pip not found..."
   read -p "Do you like to install pip now?(Y/N): " answer
-  [[ "$answer" != "${answer#[Yy]}" ]] && install_pip
+  if [[ "$answer" != "${answer#[Yy]}" ]]; then
+    install_pip
+  else
+    echo "Installer cancel"
+    echo "Sorry, this config need pip to install some plugins :("
+    exit
+  fi
 }
 
 
 # Install nodejs functions
-install_node_on_ubuntu() {
+install_node_on_ubuntu()
+{
   sudp apt update
   sudo apt install nodejs npm
 }
 
-install_node_on_arch() {
+install_node_on_arch()
+{
   sudo pacman -Sy nodejs npm
 }
 
-install_node_on_fedora() {
+install_node_on_fedora()
+{
   sudo dnf check-update
   sudo dnf install -y nodejs
   sudo dnf install -y npm
 }
 
-install_node_on_gentoo() {
+install_node_on_gentoo()
+{
   echo "Printing current node status..."
 	emerge -pqv net-libs/nodejs
 	echo "Make sure the npm USE flag is enabled for net-libs/nodejs"
@@ -62,7 +78,8 @@ install_node_on_gentoo() {
 	sudo emerge -avnN net-libs/nodejs
 }
 
-install_node() {
+install_node()
+{
   echo "Installing nodejs, npm, yarn..."
   [ -n "$(cat /etc/os-release | grep Ubuntu)" ] && install_node_on_ubuntu
   [ -f "/etc/arch-release" ] && install_node_on_arch
@@ -71,43 +88,54 @@ install_node() {
 
 }
 
-ask_install_node() {
+ask_install_node()
+{
   echo "Nodejs not found..."
   read -p "Do you like to install nodejs now?(Y/N): " answer
-  [[ "$answer" != "${answer#[Yy]}" ]] && install_node
+  if [[ "$answer" != "${answer#[Yy]}" ]]; then
+    install_node
+  else
+    echo "Installer cancel"
+    echo "Sorry, this config need nodejs to install some plugins :("
+    exit
+  fi
 }
 
 
 # Other functions
-remove_old_config() {
+remove_old_config()
+{
   echo "Moving old neovim config folder to ~/.config/nvim.old"
   mv ~/.config/nvim ~/.config/nvim.old
 }
 
-install_packer() {
+install_packer()
+{
   echo "Install packer.nvim(neovim plugin manager...)"
   git clone https://github.com/wbthomason/packer.nvim \
     ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 }
 
-clone_config() {
-  echo "Clone config"
+clone_config()
+{
+  echo "Cloning config"
   git clone https://github.com/Tai-Github/nvim ~/.config/nvim
-  [ -e "$HOME/.config/nvim/install.sh" ] && rm "$HOME/.config/nvim/install.sh"
-  [ -e "$HOME/.config/nvim/README.md" ] && rm "$HOME/.config/nvim/README.md"
+  # [ -e "$HOME/.config/nvim/install.sh" ] && rm "$HOME/.config/nvim/install.sh"
+  # [ -e "$HOME/.config/nvim/README.md" ] && rm "$HOME/.config/nvim/README.md"
+  # [ -d "$HOME/.config/nvim/.git" ] && rm -rf "$HOME/.config/nvim/.git"
 }
 
-
 # Installer function
-installer() {
+installer()
+{
   # Wellcome
-  echo "Wellcome"
+  echo "Wellcome to installer"
 
   # Check and remove old neovim config
-  if [ -d "$HOME/.config/nvim" ]; then
-    echo "-------------------------------------------------------------------------------------------"
-    remove_old_config
-  fi
+  # if [ -d "$HOME/.config/nvim" ]; then
+  #   echo "-------------------------------------------------------------------------------------------"
+  #   remove_old_config
+  # fi
 
   # Check and ask to install pip
   echo "-------------------------------------------------------------------------------------------"
@@ -132,12 +160,13 @@ installer() {
     install_packer
   fi
 
+  # Clone config
+  echo "-------------------------------------------------------------------------------------------"
   clone_config
 
   echo "-------------------------------------------------------------------------------------------"
   echo "Install success."
-  echo "Before start neovim, I recommend you also install and activate a font \
-    from here: https://github.com/ryanoasis/nerd-fonts."
+  echo "Before start neovim, you need to install and activate a font from here: https://github.com/ryanoasis/nerd-fonts."
   echo "If you don't have nerd font, some UI will be broken."
   echo "Enjoy!"
 }

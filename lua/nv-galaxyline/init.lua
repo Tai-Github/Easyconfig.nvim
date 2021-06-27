@@ -233,7 +233,7 @@ gls.short_line_left[1] = {
     BufferType = {
         provider = 'FileTypeName',
         highlight = { colors.fg, colors.section_bg },
-        separator = ' ',
+        separator = ' ',
         separator_highlight = { colors.section_bg, colors.bg },
     }
 }

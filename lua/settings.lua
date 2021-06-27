@@ -13,6 +13,7 @@ O.backup = false                           -- Disable backup
 O.writebackup = false                      -- Disable write backup
 WO.cursorline = true                       -- Enable highlighting of the current line
 O.termguicolors = true                     -- Set term gui colors most terminals support this
+CMD('filetype plugin on')                  -- Filetype detection
 CMD('autocmd BufWritePre * %s/\\s\\+$//e') -- Remove trailing whitespace on save
 CMD('syntax on')                           -- Enable syntax highlight
 CMD('set expandtab')                       -- Converts tabs to spaces
