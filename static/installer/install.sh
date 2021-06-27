@@ -120,9 +120,9 @@ clone_config()
 {
   echo "Cloning config"
   git clone https://github.com/Tai-Github/nvim ~/.config/nvim
-  # [ -e "$HOME/.config/nvim/install.sh" ] && rm "$HOME/.config/nvim/install.sh"
   # [ -e "$HOME/.config/nvim/README.md" ] && rm "$HOME/.config/nvim/README.md"
   # [ -d "$HOME/.config/nvim/.git" ] && rm -rf "$HOME/.config/nvim/.git"
+  # [ -d "$HOME/.config/nvim/static" ] && rm "$HOME/.config/nvim/static"
 }
 
 # Installer function
@@ -132,10 +132,10 @@ installer()
   echo "Wellcome to installer"
 
   # Check and remove old neovim config
-  # if [ -d "$HOME/.config/nvim" ]; then
-  #   echo "-------------------------------------------------------------------------------------------"
-  #   remove_old_config
-  # fi
+  if [ -d "$HOME/.config/nvim" ]; then
+    echo "-------------------------------------------------------------------------------------------"
+    remove_old_config
+  fi
 
   # Check and ask to install pip
   echo "-------------------------------------------------------------------------------------------"
@@ -164,6 +164,7 @@ installer()
   echo "-------------------------------------------------------------------------------------------"
   clone_config
 
+  # Success install
   echo "-------------------------------------------------------------------------------------------"
   echo "Install success."
   echo "Before start neovim, you need to install and activate a font from here: https://github.com/ryanoasis/nerd-fonts."
