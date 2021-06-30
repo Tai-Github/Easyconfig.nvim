@@ -122,6 +122,7 @@ install_packer()
 clone_config()
 {
   echo "Cloning config"
+  sudo pacman -S xclip
   git clone https://github.com/Tai-Github/nvim ~/.config/nvim
   # [ -e "$HOME/.config/nvim/README.md" ] && rm "$HOME/.config/nvim/README.md"
   # [ -d "$HOME/.config/nvim/.git" ] && rm -rf "$HOME/.config/nvim/.git"
