@@ -1,4 +1,4 @@
-G.tokyonight_style = 'storm'
+G.tokyonight_style = 'night'
 G.tokyonight_italic_comments = true
 G.tokyonight_italic_keywords = true
 G.tokyonight_italic_functions = true

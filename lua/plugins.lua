@@ -24,9 +24,6 @@ return require('packer').startup(function()
   -- Fuzzy find
   use 'kien/ctrlp.vim'
 
-  -- Live server
-  use {'turbio/bracey.vim', run = 'npm install --prefix server'}
-
   -- Other
   use 'alvan/vim-closetag'
   use 'tpope/vim-surround'

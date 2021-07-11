@@ -8,7 +8,8 @@ G.coc_global_extensions = {
   'coc-tsserver',
   'coc-json',
   'coc-snippets',
-  'coc-emmet'
+  'coc-emmet',
+  'coc-sh'
 }
 
 -- Key bindings
