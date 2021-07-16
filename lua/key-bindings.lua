@@ -4,6 +4,8 @@ KEYMAP('n', '<Leader>h', ':nohl<CR>', {noremap = true, silent = true})
 -- Save key
 KEYMAP('n', '<Leader>w', ':w<CR>', {noremap = true, silent = true})
 
+KEYMAP('n', 'qq', 'ZZ', {noremap = true, silent = true})
+
 -- Better split window movement
 KEYMAP('n', '<C-h>', '<C-w>h', {noremap = true, silent = true})
 KEYMAP('n', '<C-j>', '<C-w>j', {noremap = true, silent = true})

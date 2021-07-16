@@ -10,7 +10,6 @@ require('global')
 require('settings')
 require('key-bindings')
 require('plugins')
-require('colorscheme')
 
 -- Plugin configs
 require('nv-barbar')

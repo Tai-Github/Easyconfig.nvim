@@ -20,7 +20,6 @@ install_pip_on_fedora()
   sudo dnf check-update
   sudo dnf install -y pip
 }
-}
 
 install_pip()
 {

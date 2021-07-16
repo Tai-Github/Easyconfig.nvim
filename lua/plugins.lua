@@ -10,7 +10,8 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
   -- GUI plugins
-  use 'ghifarit53/tokyonight-vim'
+  use 'joshdick/onedark.vim'
+  use 'projekt0n/github-nvim-theme'
   use 'kyazdani42/nvim-web-devicons'
   use 'kyazdani42/nvim-tree.lua'
   use 'romgrk/barbar.nvim'
