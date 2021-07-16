@@ -1,7 +1,7 @@
 G.mapleader = ' '                               -- Set key <leader>
 O.mouse = 'a'                                   -- Enable your mouse
 O.fileencoding = "utf-8"                        -- The encoding written to file
-O.showmode = false                              -- Disable show like --INSERT-- on left corner of the screen
+O.showmode = false                              -- Disable show --INSERT-- on left corner of the screen
 WO.number = true                                -- Set number lines
 WO.relativenumber = true                        -- Set relative number lines
 O.splitbelow = true                             -- Horizontal splits will automatically be below
