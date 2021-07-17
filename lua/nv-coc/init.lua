@@ -6,11 +6,15 @@ G.coc_global_extensions = {
   'coc-html',
   'coc-css',
   'coc-tsserver',
+  'coc-emmet',
   'coc-json',
   'coc-snippets',
-  'coc-emmet',
-  'coc-sh'
+  'coc-sh',
+  'coc-lua'
 }
+
+-- Set coc-settings path
+G.coc_config_home=CONFIG_PATH..'/lua/nv-coc/'
 
 -- Key bindings
 -- <Tab> to navigate the completion list

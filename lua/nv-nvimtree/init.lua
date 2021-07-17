@@ -3,7 +3,7 @@ G.nvim_tree_auto_open = 1                        -- Auto open tree when enter bl
 G.nvim_tree_auto_close = 1                       -- Auto close tree when quit nvim
 G.nvim_tree_update_cwd = 1                       -- Update tree when some thing change
 G.nvim_tree_indent_markers = 1                   -- This option shows indent markers when folders are open
-G.nvim_tree_width = 24                           -- Change tree width
+G.nvim_tree_width = 29                           -- Change tree width
 
 -- Enable icons
 G.nvim_tree_show_icons = {

@@ -6,4 +6,5 @@ G = vim.g
 FN = vim.fn
 KEYMAP = vim.api.nvim_set_keymap
 SHCMD = vim.fn.system
+CONFIG_PATH = vim.fn.stdpath('config')
 DATA_PATH = vim.fn.stdpath('data')
