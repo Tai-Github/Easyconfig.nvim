@@ -26,5 +26,9 @@
     "value": "  ",
     "enumMember": "  "
   },
-  "diagnostic.warningSign": ""
+
+  "diagnostic.warningSign": "",
+  "diagnostic.errorSign": "",
+  "diagnostic.hintSign": "",
+  "diagnostic.infoSign": ""
 }
