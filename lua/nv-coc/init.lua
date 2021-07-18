@@ -13,7 +13,7 @@ G.coc_global_extensions = {
   'coc-lua'
 }
 
--- Set coc-settings path
+-- Set coc-settings.json path
 G.coc_config_home=CONFIG_PATH..'/lua/nv-coc/'
 
 -- Key bindings

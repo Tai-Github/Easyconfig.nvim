@@ -13,10 +13,11 @@ require('key-bindings')
 require('colorscheme')
 
 -- Plugin configs
+require('nv-nvimtree')
+require('nv-galaxyline')
 require('nv-barbar')
 require('nv-closetag')
 require('nv-coc')
 require('nv-colorizer')
-require('nv-galaxyline')
-require('nv-nvimtree')
 require('nv-treesitter')
+require('nv-signify')

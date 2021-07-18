@@ -24,6 +24,8 @@ return require('packer').startup(function()
   use 'honza/vim-snippets'
   -- Fuzzy find
   use 'kien/ctrlp.vim'
+  -- Git plugin
+  use 'mhinz/vim-signify'
   -- Other
   use 'alvan/vim-closetag'
   use 'tpope/vim-surround'
