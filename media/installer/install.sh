@@ -104,24 +104,25 @@ install_packer()
 echo "Wellcome to installer"
 sleep .5
 
+
 # Check and remove old neovim config
 if [ -d "$HOME/.config/nvim" ]; then
-  echo "----------------------------------------------------------------------------"
   remove_old_config
   sleep .5
 fi
 
+
 # Check and ask to install pip
-echo "------------------------------------------------------------------------------"
 if ! [ -x "$(command -v pip3)" ]; then
   ask_install_pip
 else
   echo "Pip already installed..."
+  python3 -m pip install --user --upgrade pynvim
 fi
 sleep .5
 
+
 # Check and ask to install nodejs
-echo "------------------------------------------------------------------------------"
 if ! [ -x "$(command -v node)" ]; then
   ask_install_node
 else
@@ -129,8 +130,8 @@ else
 fi
 sleep .5
 
+
 # Check and install packer.nvim(neovim plugins manager)
-echo "------------------------------------------------------------------------------"
 if [ -e "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then
   echo "Packer.nvim(neovim plugins manager) already installed..."
 else
@@ -138,17 +139,18 @@ else
 fi
 sleep .5
 
+
 # Clone config
-echo "------------------------------------------------------------------------------"
 echo "Cloning config"
 sudo pacman -S xclip
 git clone https://github.com/Tai-Github/nvim ~/.config/nvim
 # [ -e "$HOME/.config/nvim/README.md" ] && rm "$HOME/.config/nvim/README.md"
 # [ -d "$HOME/.config/nvim/.git" ] && rm -rf "$HOME/.config/nvim/.git"
-# [ -d "$HOME/.config/nvim/static" ] && rm "$HOME/.config/nvim/static"
+# [ -d "$HOME/.config/nvim/static" ] && rm "$HOME/.config/nvim/media"
 
-# Plugin install
-echo "------------------------------------------------------------------------------"
+
+# Install success
+echo "--------------------------------------------------"
 echo "Install success."
 echo "Before start neovim, you need to install and activate a font from here: https://github.com/ryanoasis/nerd-fonts."
 echo "If you don't have nerd font, some UI will be broken."

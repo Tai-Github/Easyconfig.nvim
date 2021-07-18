@@ -8,6 +8,6 @@
 Make sure you have the newest version of Neovim and Nerd Font.
 
 ```bash
-sh <(curl https://raw.githubusercontent.com/Tai-Github/nvim/master/static/installer/install.sh)
+curl https://raw.githubusercontent.com/Tai-Github/nvim/master/media/installer/install.sh | bash
 ```
-After installation run `nvim` and then `:PackerInstall`.
+After installation run `nvim +PackerInstall` and wait for it install some plugin.

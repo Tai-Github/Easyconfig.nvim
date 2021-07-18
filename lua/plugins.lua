@@ -16,6 +16,7 @@ return require('packer').startup(function()
   use 'kyazdani42/nvim-web-devicons'
   -- File explore tree
   use 'kyazdani42/nvim-tree.lua'
+  -- Tab/Status bar plugins
   use 'romgrk/barbar.nvim'
   use {'glepnir/galaxyline.nvim', branch = 'main'}
   -- Auto completed

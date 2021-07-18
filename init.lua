@@ -7,8 +7,8 @@
 
 -- Basic configs
 require('global')
-require('plugins')
 require('settings')
+require('plugins')
 require('key-bindings')
 require('colorscheme')
 
