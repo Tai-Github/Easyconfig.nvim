@@ -15,18 +15,11 @@ install_pip_on_arch()
   sudo pacman -Sy python-pip
 }
 
-install_pip_on_fedora()
-{
-  sudo dnf check-update
-  sudo dnf install -y pip
-}
-
 install_pip()
 {
   echo "Installing pip..."
 	[ -n "$(cat /etc/os-release | grep Ubuntu)" ] && install_pip_on_ubuntu
 	[ -f "/etc/arch-release" ] && install_pip_on_arch
-	[ -f "/etc/fedora-release" ] && install_pip_on_fedora
   python3 -m pip install --user --upgrade pynvim
 }
 
@@ -56,19 +49,11 @@ install_node_on_arch()
   sudo pacman -Sy nodejs npm
 }
 
-install_node_on_fedora()
-{
-  sudo dnf check-update
-  sudo dnf install -y nodejs
-  sudo dnf install -y npm
-}
-
 install_node()
 {
   echo "Installing nodejs, npm..."
   [ -n "$(cat /etc/os-release | grep Ubuntu)" ] && install_node_on_ubuntu
   [ -f "/etc/arch-release" ] && install_node_on_arch
-  [ -f "/etc/fedora-release" ] && install_node_on_fedora
 }
 
 ask_install_node()
@@ -84,6 +69,24 @@ ask_install_node()
   fi
 }
 
+# Install xclip help neovim use system clipboard
+install_xclip_on_ubuntu()
+{
+  sudo apt-get update
+  sudo apt-get install xclip
+}
+
+install_xclip_on_arch()
+{
+  sudo pacman -Sy xclip
+}
+
+install_xclip()
+{
+  echo "Installing xclip(help neovim use system clipboard)..."
+  [ -n "$(cat /etc/os-release | grep Ubuntu)" ] && install_node_on_ubuntu
+  [ -f "/etc/arch-release" ] && install_node_on_arch
+}
 
 # Other functions
 remove_old_config()
@@ -94,7 +97,7 @@ remove_old_config()
 
 install_packer()
 {
-  echo "Install packer.nvim(neovim plugin manager)"
+  echo "Install packer.nvim(neovim plugin manager)..."
   git clone https://github.com/wbthomason/packer.nvim \
     ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 }
@@ -131,6 +134,15 @@ fi
 sleep .5
 
 
+# Check and install xclip
+if ! [ -x "$(command -v xclip)" ]; then
+  install_xclip
+else
+  echo "Xclip already installed..."
+fi
+sleep .5
+
+
 # Check and install packer.nvim(neovim plugins manager)
 if [ -e "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then
   echo "Packer.nvim(neovim plugins manager) already installed..."
@@ -142,7 +154,6 @@ sleep .5
 
 # Clone config
 echo "Cloning config"
-sudo pacman -S xclip
 git clone https://github.com/Tai-Github/nvim ~/.config/nvim
 # [ -e "$HOME/.config/nvim/README.md" ] && rm "$HOME/.config/nvim/README.md"
 # [ -d "$HOME/.config/nvim/.git" ] && rm -rf "$HOME/.config/nvim/.git"

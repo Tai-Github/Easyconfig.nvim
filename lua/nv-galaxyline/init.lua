@@ -68,8 +68,8 @@ end
 -- Left side
 gls.left[1] = {
     FirstElement = {
-        provider = function() return '   ' end,
-        highlight = { colors.cyan, colors.section_bg },
+        provider = function() return '   ' end,
+        highlight = { colors.green, colors.section_bg },
         separator = "",
         separator_highlight = {colors.bg, colors.section_bg}
     },

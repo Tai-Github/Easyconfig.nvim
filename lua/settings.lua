@@ -1,5 +1,4 @@
 G.mapleader = ' '                               -- Set key <leader>
-O.mouse = 'a'                                   -- Enable your mouse
 O.fileencoding = "utf-8"                        -- The encoding written to file
 O.showmode = false                              -- Disable show --INSERT-- on left corner of the screen
 WO.number = true                                -- Set number lines
@@ -18,6 +17,5 @@ CMD('autocmd BufWritePre * %s/\\s\\+$//e')      -- Remove trailing whitespace on
 CMD('syntax on')                                -- Enable syntax highlight
 CMD('set expandtab')                            -- Converts tabs to spaces
 CMD('set tabstop=2')                            -- Insert 2 spaces for a tab
-CMD('set shiftwidth=2')                         -- Change the number of space characters inserted for indentation
+CMD('set shiftwidth=2')                         -- Change 2 space characters inserted for indentation
 CMD('set autoindent')                           -- Auto indent when go to the next line
-CMD('autocmd VimEnter * silent :PackerInstall') -- Auto run :PackerInstall to install plugin
