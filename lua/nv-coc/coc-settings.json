@@ -29,8 +29,8 @@
 
   "diagnostic.warningSign": "",
   "diagnostic.errorSign": "",
-  "diagnostic.hintSign": "כֿ",
-  "diagnostic.infoSign": "כֿ",
+  "diagnostic.hintSign": "",
+  "diagnostic.infoSign": "",
 
   "Lua.diagnostics.globals": ["vim"]
 }
