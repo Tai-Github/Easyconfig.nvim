@@ -159,11 +159,4 @@ git clone --depth 1 https://github.com/Tai-Github/nvim ~/.config/nvim
 # [ -d "$HOME/.config/nvim/.git" ] && rm -rf "$HOME/.config/nvim/.git"
 # [ -d "$HOME/.config/nvim/static" ] && rm "$HOME/.config/nvim/media"
 
-
-# Install success
-echo "--------------------------------------------------"
-echo "Install success."
-echo "Before start neovim, you need to install and activate a font from here: https://github.com/ryanoasis/nerd-fonts."
-echo "If you don't have nerd font, some UI will be broken."
-
 exit 0
