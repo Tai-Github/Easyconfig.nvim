@@ -20,3 +20,4 @@ CMD('set expandtab')                            -- Converts tabs to spaces
 CMD('set tabstop=2')                            -- Insert 2 spaces for a tab
 CMD('set shiftwidth=2')                         -- Change 2 space characters inserted for indentation
 CMD('set autoindent')                           -- Auto indent when go to the next line
+CMD('colorscheme onedark')                      -- Set default theme

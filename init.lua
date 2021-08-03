@@ -7,10 +7,9 @@
 
 -- Basic configs
 require('global')
-require('settings')
 require('plugins')
+require('settings')
 require('key-bindings')
-require('colorscheme')
 
 -- Plugin configs
 require('nv-nvimtree')

@@ -20,4 +20,4 @@ G.nvim_tree_icons = {
 }
 
 -- Set key bindings
-vim.api.nvim_set_keymap('n', '<C-b>', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
+KEYMAP('n', '<C-b>', ':NvimTreeToggle<CR>', OPTION1)
