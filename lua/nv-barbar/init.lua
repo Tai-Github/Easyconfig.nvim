@@ -1,7 +1,7 @@
 -- Set key bindings
 -- Movement
 KEYMAP('n', '<M-h>', ':BufferPrevious<CR>', {noremap = true, silent = true})
-KEYMAP('n', '<M-l>', ':BufferNext<CR>', {noremap = true, silent = true})
+KEYMAP('n', '<M-l>', ':BufferNext<CR>',     {noremap = true, silent = true})
 
 -- Goto
 KEYMAP('n', '<M-1>', ':BufferGoto 1<CR>', {noremap = true, silent = true})
