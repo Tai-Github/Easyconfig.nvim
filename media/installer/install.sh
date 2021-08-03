@@ -98,7 +98,7 @@ remove_old_config()
 install_packer()
 {
   echo "Install packer.nvim(neovim plugin manager)..."
-  git clone https://github.com/wbthomason/packer.nvim \
+  git clone --depth 1 https://github.com/wbthomason/packer.nvim \
     ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 }
 
@@ -154,7 +154,7 @@ sleep .5
 
 # Clone config
 echo "Cloning config"
-git clone https://github.com/Tai-Github/nvim ~/.config/nvim
+git clone --depth 1 https://github.com/Tai-Github/nvim ~/.config/nvim
 # [ -e "$HOME/.config/nvim/README.md" ] && rm "$HOME/.config/nvim/README.md"
 # [ -d "$HOME/.config/nvim/.git" ] && rm -rf "$HOME/.config/nvim/.git"
 # [ -d "$HOME/.config/nvim/static" ] && rm "$HOME/.config/nvim/media"
