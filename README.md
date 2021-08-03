@@ -3,7 +3,7 @@
 <img align="center" src="media/screenshots/screenshot1.png"/>
 <img align="center" src="media/screenshots/screenshot2.png"/>
 
-# Install in one command
+# Install
 
 Make sure you have the newest version of Neovim and Nerd Font.
 
