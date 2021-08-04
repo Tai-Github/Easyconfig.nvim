@@ -23,7 +23,9 @@ return require('packer').startup(function()
   use {'neoclide/coc.nvim', branch = 'release'}
   use 'honza/vim-snippets'
   -- Fuzzy find
-  use 'kien/ctrlp.vim'
+  use 'nvim-lua/plenary.nvim'
+  use 'nvim-lua/popup.nvim'
+  use 'nvim-telescope/telescope.nvim'
   -- Float terminal
   use 'voldikss/vim-floaterm'
   -- Git plugin

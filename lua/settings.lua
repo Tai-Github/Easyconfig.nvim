@@ -1,5 +1,5 @@
 G.mapleader = ' '                               -- Set key <leader>
-vim.o.mouse = 'a'                               -- Enable your mouse
+O.mouse = 'a'                                   -- Enable your mouse
 O.fileencoding = 'utf-8'                        -- The encoding written to file
 O.showmode = false                              -- Disable show --INSERT-- on left corner of the screen
 WO.number = true                                -- Set number lines
