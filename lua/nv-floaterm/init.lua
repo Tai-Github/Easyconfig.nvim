@@ -7,7 +7,7 @@ G.floaterm_height    = 0.9
 CMD('hi FloatermBorder guibg=normal')
 
 -- Key bindings
-G.floaterm_keymap_kill   = '<C-M-Q>'
+G.floaterm_keymap_kill   = '<M-q>'
 G.floaterm_keymap_new    = '<M-t>t'
 G.floaterm_keymap_prev   = '<M-t>h'
 G.floaterm_keymap_next   = '<M-t>n'

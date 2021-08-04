@@ -11,20 +11,19 @@ require('telescope').setup{
       '--column',
       '--smart-case'
     },
-    prompt_prefix = "> ",
-    selection_caret = "> ",
+    prompt_prefix = " ",
+    selection_caret = " ",
     entry_prefix = "  ",
     initial_mode = "insert",
     selection_strategy = "reset",
     sorting_strategy = "descending",
     layout_strategy = "horizontal",
     layout_config = {
-      horizontal = {
-        mirror = false,
-      },
-      vertical = {
-        mirror = false,
-      },
+      preview_cutoff = 120,
+      preview_width = 60,
+      width = 0.8,
+      horizontal = { mirror = false },
+      vertical = { mirror = false },
     },
     file_sorter =  require'telescope.sorters'.get_fuzzy_file,
     file_ignore_patterns = {},
@@ -51,3 +50,7 @@ require('telescope').setup{
     }
   }
 }
+
+-- Key bindings
+KEYMAP('n', '<Leader>ff', ':Telescope find_files<CR>', OPTION1)
+KEYMAP('n', '<Leader>fg', ':Telescope git_status<CR>', OPTION1)
