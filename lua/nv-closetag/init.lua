@@ -1,3 +1,9 @@
+-- Check is installed
+local install_path = DATA_PATH..'/site/pack/packer/start/vim-closetag'
+if FN.empty(FN.glob(install_path)) > 0 then
+  return
+end
+
 -- These are the file extensions where this plugin is enabled
 G.closetag_filenames = '*.html, *.jsx, *.js'
 

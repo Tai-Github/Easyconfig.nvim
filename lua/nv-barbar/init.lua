@@ -1,3 +1,9 @@
+-- Check is installed
+local install_path = DATA_PATH..'/site/pack/packer/start/barbar.nvim'
+if FN.empty(FN.glob(install_path)) > 0 then
+  return
+end
+
 -- Config
 G.bufferline = {
   -- Enable/disable animations
@@ -18,8 +24,8 @@ G.bufferline = {
   clickable = true,
 
   -- Excludes buffers from the tabline
-  exclude_ft = { 'javascript' },
-  exclude_name = { 'package.json' },
+  -- exclude_ft = { 'javascript' },
+  -- exclude_name = { 'package.json' },
 
   -- Enable/disable icons
   -- if set to 'numbers', will show buffer index in the tabline

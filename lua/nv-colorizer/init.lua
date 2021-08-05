@@ -1,3 +1,9 @@
+-- Check is installed
+local install_path = DATA_PATH..'/site/pack/packer/start/nvim-colorizer.nvim'
+if FN.empty(FN.glob(install_path)) > 0 then
+  return
+end
+
 require'colorizer'.setup(
   {'*';},
   {

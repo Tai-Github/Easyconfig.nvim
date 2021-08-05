@@ -1,3 +1,9 @@
+-- Check is installed
+local install_path = DATA_PATH..'/site/pack/packer/start/vim-floaterm'
+if FN.empty(FN.glob(install_path)) > 0 then
+  return
+end
+
 -- Config
 G.floaterm_autoclose = 2
 G.floaterm_width     = 0.8

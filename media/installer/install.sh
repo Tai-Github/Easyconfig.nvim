@@ -159,4 +159,10 @@ git clone --depth 1 https://github.com/Tai-Github/nvim ~/.config/nvim
 # [ -d "$HOME/.config/nvim/.git" ] && rm -rf "$HOME/.config/nvim/.git"
 # [ -d "$HOME/.config/nvim/static" ] && rm "$HOME/.config/nvim/media"
 
+# Install success
+echo "Install success"
+echo "Make sure you have to install and active nerd font from: https://www.nerdfonts.com/font-downloads"
+
+nvim +PackerInstall
+
 exit 0

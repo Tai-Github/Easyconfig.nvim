@@ -2,7 +2,10 @@
 local install_path = DATA_PATH..'/site/pack/packer/start/packer.nvim'
 
 if FN.empty(FN.glob(install_path)) > 0 then
-  SHCMD({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
+  SHCMD({'git', 'clone',
+    'https://github.com/wbthomason/packer.nvim',
+    install_path
+  })
 end
 
 local use = require('packer').use

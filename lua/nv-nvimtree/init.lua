@@ -1,3 +1,9 @@
+-- Check is installed
+local install_path = DATA_PATH..'/site/pack/packer/start/nvim-tree.lua'
+if FN.empty(FN.glob(install_path)) > 0 then
+  return
+end
+
 G.nvim_tree_ignore = {'.git', 'node_modules'}    -- Set directory will hide
 G.nvim_tree_auto_open = 1                        -- Auto open tree when enter blank nvim
 G.nvim_tree_auto_close = 1                       -- Auto close tree when quit nvim
