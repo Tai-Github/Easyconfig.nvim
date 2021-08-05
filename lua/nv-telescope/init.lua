@@ -4,6 +4,7 @@ if FN.empty(FN.glob(install_path)) > 0 then
   return
 end
 
+-- Config
 local actions = require('telescope.actions')
 
 require('telescope').setup{

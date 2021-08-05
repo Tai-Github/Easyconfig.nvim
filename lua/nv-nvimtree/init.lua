@@ -4,6 +4,7 @@ if FN.empty(FN.glob(install_path)) > 0 then
   return
 end
 
+-- Config
 G.nvim_tree_ignore = {'.git', 'node_modules'}    -- Set directory will hide
 G.nvim_tree_auto_open = 1                        -- Auto open tree when enter blank nvim
 G.nvim_tree_auto_close = 1                       -- Auto close tree when quit nvim
@@ -21,7 +22,6 @@ G.nvim_tree_show_icons = {
 G.nvim_tree_icons = {
     default = '',
     symlink = '',
-    -- git = {unstaged = "", staged = "✓", unmerged = "", renamed = "➜", untracked = ""},
     folder = {default = "", open = "", empty = "", empty_open = "", symlink = ""}
 }
 
@@ -29,9 +29,9 @@ G.nvim_tree_icons = {
 KEYMAP('n', '<C-b>', ':NvimTreeToggle<CR>', OPTION1)
 
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
-vim.g.nvim_tree_bindings = {
+G.nvim_tree_bindings = {
   { key = {"<CR>", "o", "<2-LeftMouse>"}, cb = tree_cb("edit") },
-  { key = {"<2-RightMouse>", "cd"},    cb = tree_cb("cd") },
+  { key = {"<2-RightMouse>", "cd"},       cb = tree_cb("cd") },
   { key = "<C-v>",                        cb = tree_cb("vsplit") },
   { key = "<C-x>",                        cb = tree_cb("split") },
   { key = "<C-t>",                        cb = tree_cb("tabnew") },

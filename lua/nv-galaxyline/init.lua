@@ -4,6 +4,7 @@ if FN.empty(FN.glob(install_path)) > 0 then
   return
 end
 
+-- Config
 local utils = {}
 
 function utils.is_buffer_empty()
