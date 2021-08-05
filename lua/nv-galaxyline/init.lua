@@ -2,7 +2,7 @@ local utils = {}
 
 function utils.is_buffer_empty()
     -- Check whether the current buffer is empty
-    return FN.empty(vim.fn.expand('%:t')) == 1
+    return FN.empty(FN.expand('%:t')) == 1
 end
 
 function utils.has_width_gt(cols)
@@ -86,7 +86,7 @@ gls.left[2] = {
                 v = 'VISUAL',
                 R = 'REPLACE',
             }
-            vim.api.nvim_command('hi GalaxyViMode guifg='..mode_color())
+            API.nvim_command('hi GalaxyViMode guifg='..mode_color())
             local alias_mode = alias[FN.mode()]
             if alias_mode == nil then
                 alias_mode = FN.mode()
@@ -205,7 +205,7 @@ gls.left[15] = {
 -- Right side
 gls.right[1]= {
     FileFormat = {
-        provider = function() return vim.bo.filetype end,
+        provider = function() return BO.filetype end,
         highlight = { colors.fg,colors.section_bg },
         separator = ' ',
         separator_highlight = { colors.section_bg,colors.bg },

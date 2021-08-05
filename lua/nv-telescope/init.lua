@@ -13,7 +13,7 @@ require('telescope').setup{
     },
     prompt_prefix = " ",
     selection_caret = " ",
-    entry_prefix = "  ",
+    entry_prefix = " ",
     initial_mode = "insert",
     selection_strategy = "reset",
     sorting_strategy = "descending",
