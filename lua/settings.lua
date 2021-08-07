@@ -14,10 +14,10 @@ O.writebackup = false                           -- Disable write backup
 WO.cursorline = true                            -- Enable highlighting of the current line
 O.termguicolors = true                          -- Set term gui colors most terminals support this
 CMD('filetype plugin on')                       -- Filetype detection
-CMD('autocmd BufWritePre * %s/\\s\\+$//e')      -- Remove trailing whitespace on save
 CMD('syntax on')                                -- Enable syntax highlight
+CMD('autocmd BufWritePre * %s/\\s\\+$//e')      -- Remove trailing whitespace on save
 CMD('set expandtab')                            -- Converts tabs to spaces
 CMD('set tabstop=2')                            -- Insert 2 spaces for a tab
 CMD('set shiftwidth=2')                         -- Change 2 space characters inserted for indentation
 CMD('set autoindent')                           -- Auto indent when go to the next line
-CMD('silent! colorscheme onedark')              -- Set theme
+CMD('silent! colorscheme onedark')              -- Set colorscheme
