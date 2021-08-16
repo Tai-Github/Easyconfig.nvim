@@ -46,7 +46,7 @@ G.bufferline = {
   icon_pinned = '車',
 
   -- Sets the maximum padding width with which to surround each tab
-  maximum_padding = 4,
+  maximum_padding = 5,
 
   -- Sets the maximum buffer name length.
   maximum_length = 30,

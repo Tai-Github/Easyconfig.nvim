@@ -16,6 +16,7 @@ G.coc_global_extensions = {
   'coc-json',
   'coc-snippets',
   'coc-sh',
+  'coc-python',
   'coc-lua'
 }
 

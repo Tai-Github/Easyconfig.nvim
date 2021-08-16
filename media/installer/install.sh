@@ -121,6 +121,7 @@ if ! [ -x "$(command -v pip3)" ]; then
 else
   echo "Pip already installed..."
   python3 -m pip install --user --upgrade pynvim
+  python3 -m pip install --user jedi
 fi
 sleep .5
 
