@@ -20,10 +20,5 @@ CMD('set expandtab')                            -- Converts tabs to spaces
 CMD('set tabstop=2')                            -- Insert 2 spaces for a tab
 CMD('set shiftwidth=2')                         -- Change 2 space characters inserted for indentation
 CMD('set autoindent')                           -- Auto indent when go to the next line
+CMD('autocmd BufWritePre * %s/\\s\\+$//e')      -- Remove trailing whitespace on save
 CMD('silent! colorscheme onedark')              -- Set colorscheme
-
--- Autocmd
--- Recompile suckless program when save config.def.h file
-CMD('autocmd BufWritePost config.def.h !cp config.def.h config.h && sudo make install clean')
--- Remove trailing whitespace on save
-CMD('autocmd BufWritePre * %s/\\s\\+$//e')
