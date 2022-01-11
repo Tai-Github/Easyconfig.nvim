@@ -1,3 +1,4 @@
+SET         = vim.opt
 O           = vim.o
 BO          = vim.bo
 WO          = vim.wo

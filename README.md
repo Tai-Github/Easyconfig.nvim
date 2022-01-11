@@ -1,7 +1,7 @@
 # Screenshots
 
-<img align="center" src="media/screenshots/screenshot1.png"/>
-<img align="center" src="media/screenshots/screenshot2.png"/>
+<img align="center" src="media/screenshots/screenshot1.png" />
+<img align="center" src="media/screenshots/screenshot2.png" />
 
 # Install in one command
 
