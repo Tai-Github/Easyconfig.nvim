@@ -9,7 +9,7 @@ require("bufferline").setup{
     right_mouse_command = 'vert sbuffer %d',
     close_command = "bdelete! %d",
     show_close_icon = true,
-    separator_style = 'slant',
+    separator_style = 'thin',
     diagnostics = 'nvim_lsp',
     offsets = {
       {

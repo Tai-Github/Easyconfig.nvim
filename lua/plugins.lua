@@ -22,8 +22,7 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
   -- Theme
-  use 'dracula/vim'
-  use 'olimorris/onedarkpro.nvim'
+  use 'tiagovla/tokyodark.nvim'
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
   -- Icon
@@ -54,7 +53,7 @@ return require('packer').startup(function()
   use 'hrsh7th/vim-vsnip'
 
   -- Formater
-  use {'prettier/vim-prettier', run = 'yarn install --frozen-lockfile --production'}
+  -- use {'prettier/vim-prettier', run = 'yarn install --frozen-lockfile --production'}
 
   -- Fuzzy find
   use 'nvim-lua/plenary.nvim'

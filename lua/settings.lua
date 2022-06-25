@@ -21,4 +21,3 @@ SET.cursorline = true                           -- Enable highlighting of the cu
 SET.termguicolors = true                        -- Set term gui colors most terminals support this
 SET.expandtab = true                            -- Converts tabs to spaces
 CMD('autocmd BufWritePre * %s/\\s\\+$//e')      -- Remove trailing whitespace on save
-CMD('silent! colorscheme dracula')           -- Set colorscheme

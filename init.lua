@@ -9,6 +9,7 @@
 require('global')
 require('settings')
 require('plugins')
+require('theme')
 require('key-bindings')
 
 --Plugins

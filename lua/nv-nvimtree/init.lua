@@ -12,7 +12,7 @@ require('nvim-tree').setup {
   update_cwd = true,
   filters = {
     dotfiles = false,
-    custom = {'^node_modules', '^.git'}
+    custom = {'^node_modules$', '^.git$'}
   },
   renderer = {
     -- This option shows indent markers when folders are open

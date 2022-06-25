@@ -23,7 +23,9 @@ require'nvim-treesitter.configs'.setup {
     'c_sharp',
     'rust',
     'prisma',
-    'html'
+    'html',
+    -- 'pascal',
+    'fish'
   },
 
   matchup = {
