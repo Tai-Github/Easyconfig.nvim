@@ -21,6 +21,9 @@ require'nvim-treesitter.configs'.setup {
     'c',
     'cpp',
     'c_sharp',
+    'rust',
+    'prisma',
+    'html'
   },
 
   matchup = {

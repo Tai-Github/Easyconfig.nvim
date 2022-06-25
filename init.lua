@@ -7,18 +7,20 @@
 
 -- Basic configs
 require('global')
-require('plugins')
 require('settings')
+require('plugins')
 require('key-bindings')
 
--- Plugin configs
+--Plugins
+require('nv-treesitter')
+require('nv-bufferline')
 require('nv-nvimtree')
 require('nv-galaxyline')
-require('nv-barbar')
 require('nv-closetag')
-require('nv-coc')
-require('nv-colorizer')
-require('nv-treesitter')
-require('nv-signify')
-require('nv-telescope')
 require('nv-floaterm')
+require('nv-telescope')
+require('nv-lspconfig')
+require('nv-colorizer')
+require('nv-lspsaga')
+require('nv-cmp')
+require('nv-gitsigns')

@@ -5,30 +5,41 @@ if FN.empty(FN.glob(install_path)) > 0 then
 end
 
 -- Config
-G.nvim_tree_indent_markers = 1  -- This option shows indent markers when folders are open
-G.nvim_tree_show_icons = {      -- Enable icons
-  git = 0,
-  folders = 1,
-  files = 1
-}
-G.nvim_tree_icons = {
-  default = '',
-  symlink = '',
-  folder = {default = "", open = "", empty = "", empty_open = "", symlink = ""}
-}
-
 local tree_cb = require('nvim-tree.config').nvim_tree_callback
 require('nvim-tree').setup {
   open_on_setup = true,
-  auto_close = true,
   open_on_tab = true,
   update_cwd = true,
   filters = {
     dotfiles = false,
-    custom = {'.git', 'node_modules'}
+    custom = {'^node_modules', '^.git'}
+  },
+  renderer = {
+    -- This option shows indent markers when folders are open
+    indent_markers = {
+      enable = true,
+      icons = {
+        corner = '└ ',
+        edge = '│ ',
+        none = '  ',
+      },
+    },
+    icons = {
+      glyphs = {
+        default = '',
+        symlink = '',
+        folder = {default = "", open = "", empty = "", empty_open = "", symlink = ""}
+      },
+      -- Show icons
+      show = {
+        git = false,
+        folder = true,
+        file = true
+      }
+    }
   },
   view = {
-    width = 29,
+    width = 25,
     side = 'left',
     mappings = {
       custom_only = true,
@@ -75,3 +86,13 @@ require('nvim-tree').setup {
 
 -- Set key bindings
 KEYMAP('n', '<C-b>', ':NvimTreeToggle<CR>', OPTION1)
+
+-- Auto close
+vim.api.nvim_create_autocmd("BufEnter", {
+  nested = true,
+  callback = function()
+    if #vim.api.nvim_list_wins() == 1 and vim.api.nvim_buf_get_name(0):match("NvimTree_") ~= nil then
+      vim.cmd "quit"
+    end
+  end
+})

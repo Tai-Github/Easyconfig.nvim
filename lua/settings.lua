@@ -20,6 +20,5 @@ SET.writebackup = false                         -- Disable write backup
 SET.cursorline = true                           -- Enable highlighting of the current line
 SET.termguicolors = true                        -- Set term gui colors most terminals support this
 SET.expandtab = true                            -- Converts tabs to spaces
-SET.autoindent = true                           -- Auto indent when go to the next line
 CMD('autocmd BufWritePre * %s/\\s\\+$//e')      -- Remove trailing whitespace on save
-CMD('silent! colorscheme onedark')              -- Set colorscheme
+CMD('silent! colorscheme dracula')           -- Set colorscheme

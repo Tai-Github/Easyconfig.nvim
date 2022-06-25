@@ -1,10 +1,6 @@
 -- Disable search highlight
 KEYMAP('n', '<Leader>h', ':nohl<CR>', OPTION1)
 
--- Save
-KEYMAP('n', '<Leader>w', ':w<CR>', OPTION1)
-KEYMAP('n', 'qq', 'ZZ', OPTION1)
-
 -- Select all
 KEYMAP('n', '<C-a>', 'ggVG', OPTION1)
 
