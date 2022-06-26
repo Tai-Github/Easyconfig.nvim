@@ -1,6 +1,9 @@
 require('lspsaga').init_lsp_saga {
   show_diagnostic_source = true,
   border_style = "rounded",
+  code_action_lightbulb = {
+    enable = false
+  }
 }
 
 -- Key bindings

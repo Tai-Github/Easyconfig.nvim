@@ -22,8 +22,10 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
   -- Theme
-  use 'tiagovla/tokyodark.nvim'
+  use 'dracula/vim'
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use 'windwp/nvim-ts-autotag'
+  use 'p00f/nvim-ts-rainbow'
 
   -- Icon
   use 'kyazdani42/nvim-web-devicons'
@@ -69,7 +71,6 @@ return require('packer').startup(function()
   -- Other
   use 'norcalli/nvim-colorizer.lua'
   use 'lukas-reineke/indent-blankline.nvim'
-  use 'windwp/nvim-ts-autotag'
   use 'tpope/vim-surround'
   use 'tpope/vim-commentary'
   use 'jiangmiao/auto-pairs'

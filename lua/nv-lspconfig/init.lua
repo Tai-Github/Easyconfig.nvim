@@ -1,14 +1,15 @@
 local lsp_servers = {
-    'tsserver',
-    'tailwindcss',
-    'prismals',
-    'sumneko_lua',
-    'jsonls',
-    'html',
-    'emmet_ls',
-    'cssmodules_ls',
-    'clangd',
-    'bashls'
+  'tsserver',
+  'tailwindcss',
+  'prismals',
+  'sumneko_lua',
+  'jsonls',
+  'html',
+  'emmet_ls',
+  'cssmodules_ls',
+  'clangd',
+  'bashls',
+  'svelte'
 }
 
 require("nvim-lsp-installer").setup({

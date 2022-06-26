@@ -25,22 +25,35 @@ require'nvim-treesitter.configs'.setup {
     'prisma',
     'html',
     -- 'pascal',
-    'fish'
+    'fish',
+    'svelte',
+    'jsdoc'
+  },
+
+  rainbow = {
+    enable = true,
+    disable = {'html'},
+    colors = {
+      '#ebe534',
+      '#eb3db9',
+      '#2ac4c9',
+    },
   },
 
   matchup = {
-      enable = true,              -- mandatory, false will disable the whole extension
+    enable = true,              -- mandatory, false will disable the whole extension
   },
 
   highlight = {
-      enable = true               -- false will disable the whole extension
+    enable = true,               -- false will disable the whole extension
+    additional_vim_regex_highlighting = true,
   },
 
   context_commentstring = {
-      enable = true,
-      config = {
-        css = '// %s'
-      }
+    enable = true,
+    config = {
+      css = '// %s'
+    }
   },
 
   indent = {enable = true},

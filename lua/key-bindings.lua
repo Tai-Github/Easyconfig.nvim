@@ -2,7 +2,7 @@
 KEYMAP('n', '<Leader>h', ':nohl<CR>', OPTION1)
 
 -- Select all
-KEYMAP('n', '<C-a>', 'ggVG', OPTION1)
+KEYMAP('n', '<Leader>aa', 'ggVG', OPTION1)
 
 -- Better split window movement
 KEYMAP('n', '<C-h>', '<C-w>h', OPTION1)
