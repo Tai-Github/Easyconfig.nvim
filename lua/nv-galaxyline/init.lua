@@ -21,22 +21,30 @@ gls.left[2] = {
     provider = function()
       -- auto change color according the vim mode
       local mode_color = {n = colors.yellow, i = colors.green,v=colors.blue,
-                          [''] = colors.blue,V=colors.blue,
+                          [''] = colors.blue,V=colors.blue,
                           c = colors.magenta,no = colors.red,s = colors.orange,
-                          S=colors.orange,[''] = colors.orange,
+                          S=colors.orange,[''] = colors.orange,
                           ic = colors.yellow,R = colors.violet,Rv = colors.violet,
                           cv = colors.red,ce=colors.red, r = colors.cyan,
                           rm = colors.cyan, ['r?'] = colors.cyan,
                           ['!']  = colors.red,t = colors.red}
       local alias = {n = 'NORMAL', i = 'INSERT', c = 'COMMAND', V = 'VISUAL', [''] = 'VISUAL',
                      v = 'VISUAL', R = 'REPLACE'}
-      vim.api.nvim_command('hi GalaxyViMode guifg='..mode_color[vim.fn.mode()] ..' guibg='..colors.bg)
-      return ' '..alias[FN.mode()]..' '
+
+      API.nvim_command('hi GalaxyViMode guifg='..mode_color[FN.mode()])
+      return '  '..alias[FN.mode()]..' '
     end,
+    highlight = {colors.red,colors.bg,'bold'},
   },
 }
-
-gls.left[3] ={
+gls.left[3] = {
+  FileSize = {
+    provider = 'FileSize',
+    condition = condition.buffer_not_empty,
+    highlight = {colors.fg,colors.bg}
+  }
+}
+gls.left[4] ={
   FileIcon = {
     provider = 'FileIcon',
     condition = condition.buffer_not_empty,
@@ -44,20 +52,11 @@ gls.left[3] ={
   },
 }
 
-gls.left[4] = {
+gls.left[5] = {
   FileName = {
     provider = 'FileName',
     condition = condition.buffer_not_empty,
-    highlight = {colors.fg,colors.bg,'bold'}
-  }
-}
-
-gls.left[5] = {
-  FileSize = {
-    provider = 'FileSize',
-    icon = '猪 ',
-    condition = condition.buffer_not_empty,
-    highlight = {colors.fg,colors.bg}
+    highlight = {colors.magenta,colors.bg,'bold'}
   }
 }
 
@@ -115,13 +114,13 @@ gls.right[1] = {
     provider = 'GetLspClient',
     condition = function ()
       local tbl = {['dashboard'] = true,['']=true}
-      if tbl[vim.bo.filetype] then
+      if tbl[BO.filetype] then
         return false
       end
       return true
     end,
     icon = ' LSP:',
-    highlight = {colors.yellow, colors.bg}
+    highlight = {colors.yellow,colors.bg,'bold'}
   }
 }
 
@@ -175,7 +174,7 @@ gls.right[7] = {
   DiffModified = {
     provider = 'DiffModified',
     condition = condition.hide_in_width,
-    icon = '柳 ',
+    icon = ' 柳 ',
     highlight = {colors.orange,colors.bg},
   }
 }
@@ -193,4 +192,28 @@ gls.right[9] = {
     provider = function() return ' ▊' end,
     highlight = {colors.blue,colors.bg}
   },
+}
+
+gls.short_line_left[1] = {
+  BufferType = {
+    provider = 'FileTypeName',
+    separator = ' ',
+    separator_highlight = {'NONE',colors.bg},
+    highlight = {colors.blue,colors.bg,'bold'}
+  }
+}
+
+gls.short_line_left[2] = {
+  SFileName = {
+    provider =  'SFileName',
+    condition = condition.buffer_not_empty,
+    highlight = {colors.fg,colors.bg,'bold'}
+  }
+}
+
+gls.short_line_right[1] = {
+  BufferIcon = {
+    provider= 'BufferIcon',
+    highlight = {colors.fg,colors.bg}
+  }
 }
