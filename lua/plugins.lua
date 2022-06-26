@@ -68,7 +68,7 @@ return require('packer').startup(function()
 
   -- Other
   use 'norcalli/nvim-colorizer.lua'
-  -- use 'alvan/vim-closetag'
+  use 'lukas-reineke/indent-blankline.nvim'
   use 'windwp/nvim-ts-autotag'
   use 'tpope/vim-surround'
   use 'tpope/vim-commentary'
