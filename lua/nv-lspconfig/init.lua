@@ -19,9 +19,15 @@ require("nvim-lsp-installer").setup({
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local lspconfig = require("lspconfig")
 for _, server in pairs(lsp_servers) do
-  lspconfig[server].setup {
+  local opts = {
     capabilities = capabilities
   }
+  if server == 'tsserver' then
+      opts.filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript",
+                         "typescriptreact", "typescript.tsx" }
+      opts.root_dir = function() return vim.loop.cwd() end
+  end
+  lspconfig[server].setup(opts)
 end
 
 KEYMAP('n','gd', ':lua vim.lsp.buf.definition()<cr>', OPTION1)

@@ -68,8 +68,11 @@ return require('packer').startup(function()
 
   -- Other
   use 'norcalli/nvim-colorizer.lua'
-  use 'alvan/vim-closetag'
+  -- use 'alvan/vim-closetag'
+  use 'windwp/nvim-ts-autotag'
   use 'tpope/vim-surround'
   use 'tpope/vim-commentary'
   use 'jiangmiao/auto-pairs'
+  use {'mg979/vim-visual-multi', branch = 'master'}
+  use 'easymotion/vim-easymotion'
 end)
