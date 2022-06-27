@@ -29,10 +29,13 @@ gls.left[2] = {
                           rm = colors.cyan, ['r?'] = colors.cyan,
                           ['!']  = colors.red,t = colors.red}
       local alias = {n = 'NORMAL', i = 'INSERT', c = 'COMMAND', V = 'VISUAL', [''] = 'VISUAL',
-                     v = 'VISUAL', R = 'REPLACE'}
+                     v = 'VISUAL', R = 'REPLACE', s = 'VISUAL', S = 'VISUAL'}
 
       API.nvim_command('hi GalaxyViMode guifg='..mode_color[FN.mode()])
-      return '  '..alias[FN.mode()]..' '
+      if alias[FN.mode()] then
+        return '  '..alias[FN.mode()]..' '
+      else return '  '
+      end
     end,
     highlight = {colors.red,colors.bg,'bold'},
   },
@@ -50,7 +53,7 @@ gls.left[4] = {
   FileName = {
     provider = 'FileName',
     condition = condition.buffer_not_empty,
-    highlight = {colors.magenta,colors.bg,'bold'}
+    highlight = {colors.fg,colors.bg,'bold'}
   }
 }
 
@@ -112,21 +115,6 @@ gls.left[11] = {
 }
 
 gls.right[1] = {
-  ShowLspClient = {
-    provider = 'GetLspClient',
-    condition = function ()
-      local tbl = {['dashboard'] = true,['']=true}
-      if tbl[BO.filetype] then
-        return false
-      end
-      return true
-    end,
-    icon = ' LSP:',
-    highlight = {colors.yellow,colors.bg,'bold'}
-  }
-}
-
-gls.right[2] = {
   FileEncode = {
     provider = 'FileEncode',
     condition = condition.hide_in_width,
@@ -136,7 +124,7 @@ gls.right[2] = {
   }
 }
 
-gls.right[3] = {
+gls.right[2] = {
   FileFormat = {
     provider = 'FileFormat',
     condition = condition.hide_in_width,
@@ -146,7 +134,7 @@ gls.right[3] = {
   }
 }
 
-gls.right[4] = {
+gls.right[3] = {
   GitIcon = {
     provider = function() return '  ' end,
     condition = condition.check_git_workspace,
@@ -156,7 +144,7 @@ gls.right[4] = {
   }
 }
 
-gls.right[5] = {
+gls.right[4] = {
   GitBranch = {
     provider = 'GitBranch',
     condition = condition.check_git_workspace,
@@ -172,7 +160,7 @@ gls.right[6] = {
     highlight = {colors.green,colors.bg},
   }
 }
-gls.right[7] = {
+gls.right[6] = {
   DiffModified = {
     provider = 'DiffModified',
     condition = condition.hide_in_width,
@@ -180,7 +168,7 @@ gls.right[7] = {
     highlight = {colors.orange,colors.bg},
   }
 }
-gls.right[8] = {
+gls.right[7] = {
   DiffRemove = {
     provider = 'DiffRemove',
     condition = condition.hide_in_width,
@@ -189,7 +177,7 @@ gls.right[8] = {
   }
 }
 
-gls.right[9] = {
+gls.right[8] = {
   RainbowBlue = {
     provider = function() return ' ▊' end,
     highlight = {colors.blue,colors.bg}

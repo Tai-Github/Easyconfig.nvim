@@ -44,18 +44,10 @@ return require('packer').startup(function()
   use { 'glepnir/lspsaga.nvim', branch = 'main' }
 
   -- Auto completion
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/nvim-cmp'
-
-  -- Snippets
-  use 'hrsh7th/cmp-vsnip'
-  use 'hrsh7th/vim-vsnip'
+  use {'neoclide/coc.nvim', branch = 'release'}
 
   -- Formater
-  use 'sbdchd/neoformat'
+  -- use 'sbdchd/neoformat'
 
   -- Fuzzy find
   use 'nvim-lua/plenary.nvim'
