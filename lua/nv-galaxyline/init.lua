@@ -37,14 +37,8 @@ gls.left[2] = {
     highlight = {colors.red,colors.bg,'bold'},
   },
 }
-gls.left[3] = {
-  FileSize = {
-    provider = 'FileSize',
-    condition = condition.buffer_not_empty,
-    highlight = {colors.fg,colors.bg}
-  }
-}
-gls.left[4] ={
+
+gls.left[3] ={
   FileIcon = {
     provider = 'FileIcon',
     condition = condition.buffer_not_empty,
@@ -52,11 +46,20 @@ gls.left[4] ={
   },
 }
 
-gls.left[5] = {
+gls.left[4] = {
   FileName = {
     provider = 'FileName',
     condition = condition.buffer_not_empty,
     highlight = {colors.magenta,colors.bg,'bold'}
+  }
+}
+
+gls.left[5] = {
+  FileSize = {
+    provider = 'FileSize',
+    icon = '猪 ',
+    condition = condition.buffer_not_empty,
+    highlight = {colors.fg,colors.bg}
   }
 }
 
@@ -72,7 +75,6 @@ gls.left[6] = {
 gls.left[7] = {
   PerCent = {
     provider = 'LinePercent',
-    separator = ' ',
     separator_highlight = {'NONE',colors.bg},
     highlight = {colors.fg,colors.bg,'bold'},
   }

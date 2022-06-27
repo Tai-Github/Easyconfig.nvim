@@ -55,7 +55,7 @@ return require('packer').startup(function()
   use 'hrsh7th/vim-vsnip'
 
   -- Formater
-  -- use {'prettier/vim-prettier', run = 'yarn install --frozen-lockfile --production'}
+  use 'sbdchd/neoformat'
 
   -- Fuzzy find
   use 'nvim-lua/plenary.nvim'
