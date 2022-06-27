@@ -35,5 +35,7 @@
   "diagnostic.virtualText": false,
   "hover.target": "float",
 
-  "Lua.diagnostics.globals": ["vim"]
+  "Lua.diagnostics.globals": ["vim"],
+
+  "coc.preferences.formatOnSaveFiletypes": ["html", "css", "js", "ts", "jsx", "tsx"]
 }

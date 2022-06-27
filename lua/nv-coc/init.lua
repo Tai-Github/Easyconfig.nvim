@@ -23,13 +23,44 @@ G.coc_global_extensions = {
   'coc-clangd'
 }
 
+-- Snippets
+G.coc_snippet_next = '<tab>'
+G.coc_snippet_prev = '<s-tab>'
+
+-- Disable on easymotion
+CMD [[
+  autocmd User EasyMotionPromptBegin silent! CocDisable
+  autocmd User EasyMotionPromptEnd silent! CocEnable
+]]
+
 -- Set coc-settings.json path
 G.coc_config_home=CONFIG_PATH..'/lua/nv-coc/'
+
+-- Show documentation function
+CMD [[
+  function! ShowDocumentation()
+    if CocAction('hasProvider', 'hover')
+      call CocActionAsync('doHover')
+    else
+      call feedkeys('K', 'in')
+    endif
+  endfunction
+]]
+
+-- Check backspace function
+CMD [[
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+]]
+
+CMD[[autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')]]
 
 -- Key bindings
 -- <Tab> to navigate the completion list
 KEYMAP('i', '<Tab>',
-  'pumvisible() ? "\\<C-n>" : "\\<Tab>"', OPTION2)
+  'pumvisible() ? "\\<C-n>" : CheckBackspace() ? "\\<TAB>" : coc#refresh()', OPTION2)
 
 -- <S-Tab> to navigate the completion list
 KEYMAP('i', '<S-Tab>',
@@ -38,6 +69,22 @@ KEYMAP('i', '<S-Tab>',
 -- <CR> to confirm completion
 KEYMAP('i', '<CR>',
   'pumvisible() ? coc#_select_confirm() : "\\<C-g>u\\<CR>\\<C-r>=coc#on_enter()\\<CR>"', OPTION2)
+--
 
 -- <Leader>p to format code
 KEYMAP('n', '<Leader>p', ':call CocAction(\'format\')<CR>', OPTION1)
+
+-- gK to show documentation
+KEYMAP('n', 'gK', ':call ShowDocumentation()<CR>', OPTION1)
+
+-- GoTo code navigation.
+KEYMAP('n', 'gd', '<Plug>(coc-definition)', OPTION1)
+KEYMAP('n', 'gy', '<Plug>(coc-type-definition)', OPTION1)
+KEYMAP('n', 'gi', '<Plug>(coc-implementation)', OPTION1)
+KEYMAP('n', 'gr', '<Plug>(coc-references)', OPTION1)
+
+-- " Use <c-space> to trigger completion.
+KEYMAP('i', '<C-space>', 'coc#refresh()', OPTION2)
+
+-- Symbol renaming.
+KEYMAP('n', '<F2>', '<Plug>(coc-rename)', OPTION1)
