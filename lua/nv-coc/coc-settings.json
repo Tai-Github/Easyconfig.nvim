@@ -26,16 +26,36 @@
     "value": "  ",
     "enumMember": "  "
   },
-
   "diagnostic.warningSign": "",
   "diagnostic.errorSign": "",
   "diagnostic.hintSign": "",
   "diagnostic.infoSign": "",
-
   "diagnostic.virtualText": false,
   "hover.target": "float",
-
   "Lua.diagnostics.globals": ["vim"],
-
-  "coc.preferences.formatOnSaveFiletypes": ["html", "css", "js", "ts", "jsx", "tsx"]
+  "coc.preferences.formatOnSaveFiletypes": [
+    "html",
+    "css",
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact",
+    "json"
+  ],
+  "prettier.arrowParens": "always",
+  "prettier.bracketSameLine": false,
+  "prettier.bracketSpacing": true,
+  "prettier.embeddedLanguageFormatting": "auto",
+  "prettier.htmlWhitespaceSensitivity": "css",
+  "prettier.insertPragma": false,
+  "prettier.jsxSingleQuote": true,
+  "prettier.printWidth": 90,
+  "prettier.proseWrap": "preserve",
+  "prettier.quoteProps": "as-needed",
+  "prettier.requirePragma": false,
+  "prettier.semi": true,
+  "prettier.singleQuote": true,
+  "prettier.tabWidth": 2,
+  "prettier.trailingComma": "es5",
+  "prettier.useTabs": false
 }

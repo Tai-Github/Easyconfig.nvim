@@ -18,7 +18,6 @@ G.coc_global_extensions = {
   'coc-svelte',
   '@yaegassy/coc-tailwindcss3',
   'coc-html-css-support',
-  'coc-graphql',
   'coc-calc',
   'coc-clangd'
 }
@@ -47,20 +46,13 @@ CMD [[
   endfunction
 ]]
 
--- Check backspace function
-CMD [[
-function! CheckBackspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-]]
-
+-- Update signature help on jump placeholder.
 CMD[[autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')]]
 
 -- Key bindings
 -- <Tab> to navigate the completion list
 KEYMAP('i', '<Tab>',
-  'pumvisible() ? "\\<C-n>" : CheckBackspace() ? "\\<TAB>" : coc#refresh()', OPTION2)
+  'pumvisible() ? "\\<C-n>" : "\\<Tab>"', OPTION2)
 
 -- <S-Tab> to navigate the completion list
 KEYMAP('i', '<S-Tab>',
