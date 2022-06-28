@@ -57,7 +57,6 @@ return require('packer').startup(function()
   use 'lukas-reineke/indent-blankline.nvim'
   use 'tpope/vim-surround'
   use 'tpope/vim-commentary'
-  use 'jiangmiao/auto-pairs'
   use {'mg979/vim-visual-multi', branch = 'master'}
   use 'easymotion/vim-easymotion'
 end)

@@ -5,6 +5,7 @@ if FN.empty(FN.glob(install_path)) > 0 then
 end
 
 -- Config
+G.floaterm_title = 'Terminal($1/$2)'
 G.floaterm_autoclose = 2
 G.floaterm_width     = 0.8
 G.floaterm_height    = 0.9

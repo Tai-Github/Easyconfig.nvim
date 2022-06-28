@@ -20,21 +20,22 @@ G.coc_global_extensions = {
   '@yaegassy/coc-tailwindcss3',
   'coc-html-css-support',
   'coc-calc',
-  'coc-clangd'
+  'coc-clangd',
+  'coc-pairs',
 }
 
 -- Snippets
 G.coc_snippet_next = '<tab>'
 G.coc_snippet_prev = '<s-tab>'
 
+-- Set coc-settings.json path
+G.coc_config_home=CONFIG_PATH..'/lua/nv-coc/'
+
 -- Disable on easymotion
 CMD [[
   autocmd User EasyMotionPromptBegin silent! CocDisable
   autocmd User EasyMotionPromptEnd silent! CocEnable
 ]]
-
--- Set coc-settings.json path
-G.coc_config_home=CONFIG_PATH..'/lua/nv-coc/'
 
 -- Show documentation function
 CMD [[
@@ -80,4 +81,4 @@ KEYMAP('n', 'gr', '<Plug>(coc-references)', OPTION1)
 KEYMAP('i', '<C-space>', 'coc#refresh()', OPTION2)
 
 -- Symbol renaming.
-KEYMAP('n', '<F2>', '<Plug>(coc-rename)', OPTION1)
+KEYMAP('n', '<Leader>rn', '<Plug>(coc-rename)', OPTION1)
