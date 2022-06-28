@@ -14,7 +14,7 @@ CMD('hi FloatermBorder guibg=normal')
 
 -- Key bindings
 G.floaterm_keymap_new    = '<M-t>t'
-G.floaterm_keymap_kill   = '<M-q>'
+G.floaterm_keymap_kill   = '<M-t>k'
 G.floaterm_keymap_prev   = '<M-t>h'
 G.floaterm_keymap_next   = '<M-t>l'
 G.floaterm_keymap_toggle = '<M-t>i'

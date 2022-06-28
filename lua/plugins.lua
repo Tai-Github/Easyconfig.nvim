@@ -38,16 +38,8 @@ return require('packer').startup(function()
   use {'akinsho/bufferline.nvim', tag = "v2.*" }
   use {'glepnir/galaxyline.nvim', branch = 'main'}
 
-  -- Lsp
-  use 'williamboman/nvim-lsp-installer'
-  use 'neovim/nvim-lspconfig'
-  use { 'glepnir/lspsaga.nvim', branch = 'main' }
-
   -- Auto completion
   use {'neoclide/coc.nvim', branch = 'release'}
-
-  -- Formater
-  -- use 'sbdchd/neoformat'
 
   -- Fuzzy find
   use 'nvim-lua/plenary.nvim'

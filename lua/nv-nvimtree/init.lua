@@ -14,6 +14,9 @@ require('nvim-tree').setup {
     dotfiles = false,
     custom = {'^node_modules$', '^.git$'}
   },
+  filesystem_watchers = {
+    enable = true
+  },
   renderer = {
     -- This option shows indent markers when folders are open
     indent_markers = {
@@ -29,12 +32,6 @@ require('nvim-tree').setup {
         default = '',
         symlink = '',
         folder = {default = "", open = "", empty = "", empty_open = "", symlink = ""}
-      },
-      -- Show icons
-      show = {
-        git = false,
-        folder = true,
-        file = true
       }
     }
   },
