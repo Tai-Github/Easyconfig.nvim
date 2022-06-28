@@ -4,6 +4,7 @@ CMD('set shortmess+=c')
 -- Install extentions
 G.coc_global_extensions = {
   'coc-html',
+  'coc-htmlhint',
   'coc-css',
   'coc-tsserver',
   'coc-emmet',
