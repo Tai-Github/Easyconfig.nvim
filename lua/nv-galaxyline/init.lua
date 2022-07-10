@@ -29,7 +29,7 @@ gls.left[2] = {
                           rm = colors.cyan, ['r?'] = colors.cyan,
                           ['!']  = colors.red,t = colors.red}
       local alias = {n = 'NORMAL', i = 'INSERT', c = 'COMMAND', V = 'VISUAL', [''] = 'VISUAL',
-                     v = 'VISUAL', R = 'REPLACE', s = 'VISUAL', S = 'VISUAL'}
+                     v = 'VISUAL', R = 'REPLACE', s = 'SELECT', S = 'SELECT'}
 
       API.nvim_command('hi GalaxyViMode guifg='..mode_color[FN.mode()])
       if alias[FN.mode()] then

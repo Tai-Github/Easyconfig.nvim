@@ -22,6 +22,7 @@ G.coc_global_extensions = {
   'coc-calc',
   'coc-clangd',
   'coc-pairs',
+  'coc-fish'
 }
 
 -- Snippets
