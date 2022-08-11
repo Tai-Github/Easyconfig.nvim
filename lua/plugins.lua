@@ -22,7 +22,7 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
   -- Theme
-  use 'dracula/vim'
+  use 'tiagovla/tokyodark.nvim'
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use 'windwp/nvim-ts-autotag'
 
@@ -33,9 +33,8 @@ return require('packer').startup(function()
   use 'kyazdani42/nvim-tree.lua'
 
   -- Tab/Status bar plugins
-  use 'famiu/bufdelete.nvim'
-  use {'akinsho/bufferline.nvim', tag = "v2.*" }
-  use {'glepnir/galaxyline.nvim', branch = 'main'}
+  use 'romgrk/barbar.nvim'
+  use 'glepnir/galaxyline.nvim'
 
   -- Auto completion
   use {'neoclide/coc.nvim', branch = 'release'}
@@ -52,6 +51,7 @@ return require('packer').startup(function()
   use 'lewis6991/gitsigns.nvim'
 
   -- Other
+  use 'jiangmiao/auto-pairs'
   use 'norcalli/nvim-colorizer.lua'
   use 'lukas-reineke/indent-blankline.nvim'
   use 'tpope/vim-surround'

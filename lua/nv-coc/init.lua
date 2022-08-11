@@ -21,7 +21,6 @@ G.coc_global_extensions = {
   'coc-html-css-support',
   'coc-calc',
   'coc-clangd',
-  'coc-pairs',
   'coc-fish'
 }
 

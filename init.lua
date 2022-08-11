@@ -14,7 +14,7 @@ require('key-bindings')
 
 --Plugins
 require('nv-treesitter')
-require('nv-bufferline')
+require('nv-barbar')
 require('nv-galaxyline')
 require('nv-floaterm')
 require('nv-telescope')
