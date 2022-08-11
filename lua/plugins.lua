@@ -25,7 +25,6 @@ return require('packer').startup(function()
   use 'dracula/vim'
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use 'windwp/nvim-ts-autotag'
-  use 'p00f/nvim-ts-rainbow'
 
   -- Icon
   use 'kyazdani42/nvim-web-devicons'

@@ -30,16 +30,6 @@ require'nvim-treesitter.configs'.setup {
     'jsdoc'
   },
 
-  rainbow = {
-    enable = true,
-    disable = {'html'},
-    colors = {
-      '#ebe534',
-      '#eb3db9',
-      '#2ac4c9',
-    },
-  },
-
   matchup = {
     enable = true,              -- mandatory, false will disable the whole extension
   },

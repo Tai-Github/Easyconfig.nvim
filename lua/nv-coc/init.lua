@@ -52,18 +52,25 @@ CMD [[
 -- Update signature help on jump placeholder.
 CMD[[autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')]]
 
+CMD[[
+  function! CheckBackspace() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+  endfunction
+]]
+
 -- Key bindings
 -- <Tab> to navigate the completion list
 KEYMAP('i', '<Tab>',
-  'pumvisible() ? "\\<C-n>" : "\\<Tab>"', OPTION2)
+  'coc#pum#visible() ? coc#pum#next(1) : CheckBackspace() ? "\\<Tab>" : coc#refresh()', OPTION2)
 
 -- <S-Tab> to navigate the completion list
 KEYMAP('i', '<S-Tab>',
-  'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', OPTION2)
+  'coc#pum#visible() ? coc#pum#prev(1) : "\\<S-Tab>"', OPTION2)
 
 -- <CR> to confirm completion
 KEYMAP('i', '<CR>',
-  'pumvisible() ? coc#_select_confirm() : "\\<C-g>u\\<CR>\\<C-r>=coc#on_enter()\\<CR>"', OPTION2)
+  'coc#pum#visible() ? coc#_select_confirm() : "\\<C-g>u\\<CR>"', OPTION2)
 --
 
 -- <Leader>p to format code

@@ -21,13 +21,12 @@ require('nvim-tree').setup {
     -- This option shows indent markers when folders are open
     indent_markers = {
       enable = true,
-      icons = {
-        corner = '└ ',
-        edge = '│ ',
-        none = '  ',
-      },
+      inline_arrows = true,
     },
     icons = {
+      show = {
+        folder_arrow = false,
+      },
       glyphs = {
         default = '',
         symlink = '',
