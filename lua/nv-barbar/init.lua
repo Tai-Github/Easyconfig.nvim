@@ -4,7 +4,7 @@ require'bufferline'.setup {
   animation = true,
 
   -- Enable/disable auto-hiding the tab bar when there is a single buffer
-  auto_hide = false,
+  auto_hide = true,
 
   -- Enable/disable current/total tabpages indicator (top right corner)
   tabpages = true,
@@ -40,10 +40,10 @@ require'bufferline'.setup {
   icon_pinned = '車',
 
   -- Sets the maximum padding width with which to surround each tab
-  maximum_padding = 4,
+  maximum_padding = 2,
 
   -- Sets the maximum buffer name length.
-  maximum_length = 30,
+  maximum_length = 25,
 
   -- If set, the letters for each buffer in buffer-pick mode will be
   -- assigned based on their name. Otherwise or in case all letters are
@@ -58,7 +58,7 @@ require'bufferline'.setup {
 
   -- Sets the name of unnamed buffers. By default format is "[Buffer X]"
   -- where X is the buffer number. But only a static string is accepted here.
-  no_name_title = 'Untitled',
+  no_name_title = '[Untitled]',
 }
 
 
