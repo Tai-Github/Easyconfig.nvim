@@ -64,5 +64,6 @@
   "codeLens.enable": true,
   "javascript.suggestionActions.enabled": false,
   "coc.preferences.formatOnType": true,
-  "suggest.noselect": true
+  "suggest.noselect": true,
+  "snippets.userSnippetsDirectory": "~/.config/nvim/snips"
 }
