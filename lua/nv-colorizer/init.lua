@@ -1,4 +1,7 @@
-require 'colorizer'.setup({
+local _, colorizer = pcall(require, 'colorizer')
+if not _ then return end
+
+colorizer.setup({
   '*'
 }, {
 	RGB      = true;         -- #RGB hex codes

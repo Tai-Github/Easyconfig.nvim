@@ -1,12 +1,10 @@
 -- Check is installed
-local install_path = DATA_PATH..'/site/pack/packer/start/nvim-tree.lua'
-if FN.empty(FN.glob(install_path)) > 0 then
-  return
-end
+local _, tree = pcall(require, 'nvim-tree')
+if not _ then return end
 
 -- Config
 local tree_cb = require('nvim-tree.config').nvim_tree_callback
-require('nvim-tree').setup {
+tree.setup {
   open_on_setup = true,
   open_on_tab = true,
   update_cwd = true,
@@ -61,7 +59,7 @@ require('nvim-tree').setup {
         { key = "r",                            cb = tree_cb("rename") },
         { key = "<C-r>",                        cb = tree_cb("full_rename") },
         { key = "x",                            cb = tree_cb("cut") },
-        { key = "c",                            cb = tree_cb("copy") },
+        { key = "C",                            cb = tree_cb("copy") },
         { key = "p",                            cb = tree_cb("paste") },
         { key = "y",                            cb = tree_cb("copy_name") },
         { key = "Y",                            cb = tree_cb("copy_path") },

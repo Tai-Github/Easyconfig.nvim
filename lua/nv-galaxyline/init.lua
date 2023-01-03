@@ -1,10 +1,7 @@
 -- Check is installed
-local install_path = DATA_PATH..'/site/pack/packer/start/galaxyline.nvim'
-if FN.empty(FN.glob(install_path)) > 0 then
-  return
-end
+local _,gl = pcall(require, 'galaxyline')
+if not _ then return end
 
-local gl = require('galaxyline')
 local colors = require('galaxyline.theme').default
 local condition = require('galaxyline.condition')
 local gls = gl.section

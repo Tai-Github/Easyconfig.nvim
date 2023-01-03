@@ -1,10 +1,14 @@
+local _, bufferline = pcall(require, 'bufferline')
+
+if not _ then return end
+
 -- Config
-require'bufferline'.setup {
+bufferline.setup {
   -- Enable/disable animations
   animation = true,
 
   -- Enable/disable auto-hiding the tab bar when there is a single buffer
-  auto_hide = true,
+  auto_hide = false,
 
   -- Enable/disable current/total tabpages indicator (top right corner)
   tabpages = true,
@@ -60,7 +64,7 @@ require'bufferline'.setup {
   -- where X is the buffer number. But only a static string is accepted here.
   no_name_title = '[Untitled]',
 }
-
+-- bufferline.api.set_offset
 
 -- Set key bindings
 -- Movement
@@ -84,20 +88,21 @@ KEYMAP('n', '<M-g>', ':BufferPick    <CR>', OPTION1)
 KEYMAP('n', '<M-w>', ':BufferClose<CR>', OPTION1)
 
 -- Integration with filetree plugins
-vim.api.nvim_create_autocmd('BufWinEnter', {
-  pattern = '*',
-  callback = function()
-    if vim.bo.filetype == 'NvimTree' then
-      require'bufferline.state'.set_offset(26, 'FileTree')
-    end
-  end
-})
+local nvim_tree_events = require('nvim-tree.events')
+local bufferline_api = require('bufferline.api')
 
-vim.api.nvim_create_autocmd('BufWinLeave', {
-  pattern = '*',
-  callback = function()
-    if vim.fn.expand('<afile>'):match('NvimTree') then
-      require'bufferline.state'.set_offset(0)
-    end
-  end
-})
+local function get_tree_size()
+  return require'nvim-tree.view'.View.width
+end
+
+nvim_tree_events.subscribe('TreeOpen', function()
+  bufferline_api.set_offset(get_tree_size(), 'FileTree')
+end)
+
+nvim_tree_events.subscribe('Resize', function()
+  bufferline_api.set_offset(get_tree_size(), 'FileTree')
+end)
+
+nvim_tree_events.subscribe('TreeClose', function()
+  bufferline_api.set_offset(0)
+end)

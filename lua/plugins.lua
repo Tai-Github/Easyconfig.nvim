@@ -44,8 +44,8 @@ return require('packer').startup(function()
   use 'nvim-lua/popup.nvim'
   use 'nvim-telescope/telescope.nvim'
 
-  -- Float terminal
-  use 'voldikss/vim-floaterm'
+  -- Terminal
+  use {"akinsho/toggleterm.nvim", tag = '*'}
 
   -- Git plugin
   use 'lewis6991/gitsigns.nvim'

@@ -1,13 +1,11 @@
 -- Check is installed
-local install_path = DATA_PATH..'/site/pack/packer/start/telescope.nvim'
-if FN.empty(FN.glob(install_path)) > 0 then
-  return
-end
+local _, telescope = pcall(require, 'telescope')
+if not _ then return end
 
 -- Config
 local actions = require('telescope.actions')
 
-require('telescope').setup{
+telescope.setup {
   defaults = {
     vimgrep_arguments = {
       'rg',
