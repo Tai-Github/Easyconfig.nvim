@@ -5,22 +5,7 @@
 --   /_/ |_/\___/\____/|___/_/_/ /_/ /_/   \____/\____/_/ /_/_/ /_/\__, /
 --                                                                /____/
 
--- Basic configs
 require('global')
 require('settings')
 require('plugins')
-require('theme')
 require('key-bindings')
-
---Plugins
-require('nv-treesitter')
-require('nv-barbar')
-require('nv-galaxyline')
-require('nv-toggleterm')
-require('nv-telescope')
-require('nv-colorizer')
-require('nv-coc')
-require('nv-gitsigns')
-require('nv-indent')
-require('nv-nvimtree')
-require('nv-neovide')

@@ -1,5 +1,4 @@
 local _, bufferline = pcall(require, 'bufferline')
-
 if not _ then return end
 
 -- Config
@@ -64,7 +63,6 @@ bufferline.setup {
   -- where X is the buffer number. But only a static string is accepted here.
   no_name_title = '[Untitled]',
 }
--- bufferline.api.set_offset
 
 -- Set key bindings
 -- Movement

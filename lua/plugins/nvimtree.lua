@@ -5,7 +5,6 @@ if not _ then return end
 -- Config
 local tree_cb = require('nvim-tree.config').nvim_tree_callback
 tree.setup {
-  open_on_setup = true,
   open_on_tab = true,
   update_cwd = true,
   filters = {
@@ -80,6 +79,25 @@ tree.setup {
 
 -- Set key bindings
 KEYMAP('n', '<C-b>', ':NvimTreeToggle<CR>', OPTION1)
+
+-- Open on startup
+local function open_nvim_tree(data)
+
+  -- buffer is a real file on the disk
+  local real_file = vim.fn.filereadable(data.file) == 1
+
+  -- buffer is a [No Name]
+  local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
+
+  if not real_file and not no_name then
+    return
+  end
+
+  -- open the tree, find the file but don't focus it
+  require("nvim-tree.api").tree.toggle({ focus = false, find_file = true, })
+end
+
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
 -- Auto close
 vim.api.nvim_create_autocmd("BufEnter", {

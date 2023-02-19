@@ -3,6 +3,7 @@ O           = vim.o
 BO          = vim.bo
 WO          = vim.wo
 CMD         = vim.cmd
+APICMD      = vim.api.nvim_command
 G           = vim.g
 FN          = vim.fn
 API         = vim.api

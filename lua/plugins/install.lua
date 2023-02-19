@@ -8,11 +8,11 @@ if FN.empty(FN.glob(install_path)) > 0 then
   })
 end
 
--- Auto reloads neovim whenever save plugins.lua dile
+-- Auto reloads neovim whenever save this file
 CMD [[
   augroup packer_user_config
     autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+    autocmd BufWritePost install.lua source <afile> | PackerSync
   augroup end
 ]]
 
@@ -24,7 +24,6 @@ return require('packer').startup(function()
   -- Theme
   use 'tiagovla/tokyodark.nvim'
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use 'windwp/nvim-ts-autotag'
 
   -- Icon
   use 'kyazdani42/nvim-web-devicons'
@@ -32,17 +31,34 @@ return require('packer').startup(function()
   -- File explore tree
   use 'kyazdani42/nvim-tree.lua'
 
-  -- Tab/Status bar plugins
+  -- Tabline and statusline
   use 'romgrk/barbar.nvim'
   use 'glepnir/galaxyline.nvim'
 
-  -- Auto completion
-  use {'neoclide/coc.nvim', branch = 'release'}
-
-  -- Fuzzy find
+   -- Fuzzy find
   use 'nvim-lua/plenary.nvim'
   use 'nvim-lua/popup.nvim'
   use 'nvim-telescope/telescope.nvim'
+
+  -- Lsp
+  use 'williamboman/mason.nvim'
+  use 'williamboman/mason-lspconfig.nvim'
+  use 'neovim/nvim-lspconfig'
+  use 'glepnir/lspsaga.nvim'
+
+  -- Completion
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'onsails/lspkind.nvim'
+
+  -- Rename
+  use 'filipdutescu/renamer.nvim'
+
+  -- Snippet
+  use 'hrsh7th/vim-vsnip'
+  use 'hrsh7th/cmp-vsnip'
 
   -- Terminal
   use {"akinsho/toggleterm.nvim", tag = '*'}
@@ -50,12 +66,11 @@ return require('packer').startup(function()
   -- Git plugin
   use 'lewis6991/gitsigns.nvim'
 
-  -- Other
-  use 'jiangmiao/auto-pairs'
-  use 'norcalli/nvim-colorizer.lua'
+  -- Others
   use 'lukas-reineke/indent-blankline.nvim'
+  use 'windwp/nvim-autopairs'
+  use 'norcalli/nvim-colorizer.lua'
   use 'tpope/vim-surround'
   use 'tpope/vim-commentary'
-  use {'mg979/vim-visual-multi', branch = 'master'}
-  use 'easymotion/vim-easymotion'
+  use 'mg979/vim-visual-multi'
 end)

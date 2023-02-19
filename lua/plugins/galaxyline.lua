@@ -161,7 +161,7 @@ gls.right[6] = {
   DiffModified = {
     provider = 'DiffModified',
     condition = condition.hide_in_width,
-    icon = ' 柳 ',
+    icon = '  柳 ',
     highlight = {colors.orange,colors.bg},
   }
 }
@@ -169,14 +169,14 @@ gls.right[7] = {
   DiffRemove = {
     provider = 'DiffRemove',
     condition = condition.hide_in_width,
-    icon = ' ',
+    icon = '   ',
     highlight = {colors.red,colors.bg},
   }
 }
 
 gls.right[8] = {
   RainbowBlue = {
-    provider = function() return ' ▊' end,
+    provider = function() return '  ▊' end,
     highlight = {colors.blue,colors.bg}
   },
 }
