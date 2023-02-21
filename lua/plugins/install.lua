@@ -73,4 +73,5 @@ return require('packer').startup(function()
   use 'tpope/vim-surround'
   use 'tpope/vim-commentary'
   use 'mg979/vim-visual-multi'
+  use 'xiyaowong/nvim-transparent'
 end)

@@ -4,12 +4,19 @@
     "body": [
       "#include<bits/stdc++.h>",
       "#define el '\\n'",
+      "typedef long long ll;",
       "",
       "using namespace std;",
       "",
-      "typedef long long ll;",
-      "typedef pair<int, int> pairs;",
-      "typedef map<int, bool> map_check;",
+      "void print() {",
+      "  cout << el;",
+      "}",
+      "",
+      "template<typename First, typename ... Strings>",
+      "void print(First arg, const Strings&... rest) {",
+      "  std::cout << arg << ' ';",
+      "  print(rest...);",
+      "}",
       "",
       "int main()",
       "{",
@@ -18,32 +25,5 @@
       "}"
     ],
     "description": "Gay template"
-  },
-  "Gay template with solve function": {
-    "prefix": "sgaytemplate",
-    "body": [
-      "#include<bits/stdc++.h>",
-      "#define el '\\n'",
-      "",
-      "using namespace std;",
-      "",
-      "typedef long long ll;",
-      "typedef pair<int, int> pairs;",
-      "typedef map<int, bool> map_check;",
-      "",
-      "void solve()",
-      "{",
-      "  $0",
-      "}",
-      "",
-      "int main()",
-      "{",
-      "  int ${1:t};",
-      "  cin >> $1;",
-      "  while($1--) solve();",
-      "  return 0;",
-      "}"
-    ],
-    "description": "Gay template with solve function"
   }
 }
