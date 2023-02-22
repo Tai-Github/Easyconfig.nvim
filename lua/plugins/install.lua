@@ -33,7 +33,8 @@ return require('packer').startup(function()
 
   -- Tabline and statusline
   use 'romgrk/barbar.nvim'
-  use 'glepnir/galaxyline.nvim'
+  -- use 'glepnir/galaxyline.nvim'
+  use 'nvim-lualine/lualine.nvim'
 
    -- Fuzzy find
   use 'nvim-lua/plenary.nvim'
@@ -44,7 +45,6 @@ return require('packer').startup(function()
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
   use 'neovim/nvim-lspconfig'
-  use 'glepnir/lspsaga.nvim'
 
   -- Completion
   use 'hrsh7th/nvim-cmp'
@@ -68,7 +68,8 @@ return require('packer').startup(function()
 
   -- Others
   use 'lukas-reineke/indent-blankline.nvim'
-  use 'windwp/nvim-autopairs'
+  -- use 'windwp/nvim-autopairs'
+  use 'jiangmiao/auto-pairs'
   use 'norcalli/nvim-colorizer.lua'
   use 'tpope/vim-surround'
   use 'tpope/vim-commentary'
