@@ -25,7 +25,9 @@ require('nvim-treesitter.configs').setup {
     -- 'pascal',
     'fish',
     'svelte',
-    'jsdoc'
+    'jsdoc',
+    'markdown',
+    'markdown_inline'
   },
 
   matchup = {

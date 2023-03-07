@@ -33,7 +33,6 @@ return require('packer').startup(function()
 
   -- Tabline and statusline
   use 'romgrk/barbar.nvim'
-  -- use 'glepnir/galaxyline.nvim'
   use 'nvim-lualine/lualine.nvim'
 
    -- Fuzzy find
@@ -45,30 +44,25 @@ return require('packer').startup(function()
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
   use 'neovim/nvim-lspconfig'
+  use 'glepnir/lspsaga.nvim'
 
   -- Completion
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-nvim-lua'
   use 'onsails/lspkind.nvim'
-
-  -- Rename
-  use 'filipdutescu/renamer.nvim'
 
   -- Snippet
   use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/cmp-vsnip'
-
-  -- Terminal
-  use {"akinsho/toggleterm.nvim", tag = '*'}
 
   -- Git plugin
   use 'lewis6991/gitsigns.nvim'
 
   -- Others
   use 'lukas-reineke/indent-blankline.nvim'
-  -- use 'windwp/nvim-autopairs'
   use 'jiangmiao/auto-pairs'
   use 'norcalli/nvim-colorizer.lua'
   use 'tpope/vim-surround'

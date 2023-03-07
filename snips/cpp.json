@@ -1,30 +1,57 @@
 {
-  "Gay template": {
+  "Template for competitive": {
     "prefix": "gaytemplate",
     "body": [
       "#include<bits/stdc++.h>",
-      "#define el '\\n'",
-      "typedef long long ll;",
-      "",
       "using namespace std;",
-      "",
-      "void print() {",
-      "  cout << el;",
-      "}",
-      "",
-      "template<typename First, typename ... Strings>",
-      "void print(First arg, const Strings&... rest) {",
-      "  std::cout << arg << ' ';",
-      "  print(rest...);",
-      "}",
+      "#define el '\\n'",
+      "#define FOR(i, end) for(int i = 0; i < end; i++)",
+      "#define FORW(i, start, end) for(int i = start; i <= end; i++)",
+      "#define FORB(i, start, end) for(int i = start; i >= end; i--)",
+      "#define FORE(x, array) for(auto x : array)",
+      "#define max(a, b) (a > b ? a : b)",
+      "#define min(a, b) (a < b ? a : b)",
+      "#define max3(a, b, c) max(a, max(b, c))",
+      "#define min3(a, b, c) min(a, min(b, c))",
+      "typedef long long ll;",
+      "typedef vector<int> vi;",
+      "typedef vector<ll> vll;",
       "",
       "int main()",
       "{",
+      "  ios_base::sync_with_stdio(0);",
+      "  cin.tie(0);",
+      "",
       "  $0",
       "",
       "  return 0;",
       "}"
     ],
-    "description": "Gay template"
+    "description": "Template for competitive"
+  },
+  "Print function": {
+    "prefix": "prifunc",
+    "body": [
+      "void print()",
+      "{",
+      "  cout << el;",
+      "}",
+      "",
+      "template<typename First, typename ... Strings>",
+      "void print(First arg, const Strings&... rest)",
+      "{",
+      "  cout << arg << ' ';",
+      "  print(rest...);",
+      "}"
+    ],
+    "description": "Print function"
+  },
+  "File open": {
+    "prefix": "fileopen",
+    "body": [
+      "freopen(\"${1:filename}.inp\", \"r\", stdin);",
+      "freopen(\"$1.out\", \"w\", stdout);"
+    ],
+    "description": "File open"
   }
 }
