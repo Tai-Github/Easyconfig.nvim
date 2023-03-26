@@ -100,7 +100,7 @@ API.nvim_create_autocmd("BufEnter", {
   nested = true,
   callback = function()
     if #API.nvim_list_wins() == 1 and API.nvim_buf_get_name(0):match("NvimTree_") ~= nil then
-      CMD "quit"
+      CMD 'quit'
     end
   end
 })

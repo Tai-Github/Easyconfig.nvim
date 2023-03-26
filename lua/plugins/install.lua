@@ -32,7 +32,8 @@ return require('packer').startup(function()
   use 'kyazdani42/nvim-tree.lua'
 
   -- Tabline and statusline
-  use 'romgrk/barbar.nvim'
+  use 'akinsho/bufferline.nvim'
+  use 'kazhala/close-buffers.nvim'
   use 'nvim-lualine/lualine.nvim'
 
    -- Fuzzy find

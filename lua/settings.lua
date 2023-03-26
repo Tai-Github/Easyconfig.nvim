@@ -13,11 +13,12 @@ SET.number = true                               -- Set number lines
 SET.relativenumber = true                       -- Set relative number lines
 SET.splitbelow = true                           -- Horizontal splits will automatically be below
 SET.splitright = true                           -- Vertical splits will automatically be to the right
-SET.clipboard = 'unnamedplus'                -- Using system clipboard
+SET.clipboard = 'unnamedplus'                   -- Using system clipboard
 SET.swapfile = false                            -- Disable swap files
 SET.backup = false                              -- Disable backup
 SET.writebackup = false                         -- Disable write backup
 SET.cursorline = true                           -- Enable highlighting of the current line
 SET.termguicolors = true                        -- Set term gui colors most terminals support this
 SET.expandtab = true                            -- Converts tabs to spaces
+SET.mousemoveevent = true                       -- Enable vim mouse move event
 CMD('autocmd BufWritePre * %s/\\s\\+$//e')      -- Remove trailing whitespace on save
