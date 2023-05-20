@@ -43,7 +43,7 @@ closeBuffers.setup({
 })
 
 function BufferClose()
-  CMD 'NvimTreeToggle'
+  CMD 'NvimTreeClose'
   closeBuffers.delete({ type = 'this' })
 end
 

@@ -66,13 +66,43 @@ cmp.setup({
   formatting = {
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
-      local kind = lspkind.cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
-      local strings = vim.split(kind.kind, "%s", { trimempty = true })
-      kind.kind = " " .. (strings[1] or "") .. " "
-      kind.menu = "    (" .. (strings[2] or "") .. ")"
+      local kind = lspkind.cmp_format({
+        mode = "symbol_text",
+        maxwidth = 50,
+        symbol_map = {
+          Text = "󱀍",
+          Method = "",
+          Function = "󰊕",
+          Constructor = "",
+          Field = "󱀍",
+          Variable = "",
+          Class = "",
+          Interface = "",
+          Module = "",
+          Property = "",
+          Unit = "塞",
+          Value = "",
+          Enum = "",
+          Keyword = "",
+          Snippet = "",
+          Color = "",
+          File = "",
+          Reference = "",
+          Folder = "󰉋",
+          EnumMember = "",
+          Constant = "",
+          Struct = "",
+          Event = "",
+          Operator = "",
+          TypeParameter = ""
+        },
+      })(entry, vim_item)
+        local strings = vim.split(kind.kind, "%s", { trimempty = true })
+        kind.kind = " " .. (strings[1] or "") .. " "
+        kind.menu = "    (" .. (strings[2] or "") .. ")"
 
-      return kind
-    end,
+        return kind
+      end,
   },
 })
 
