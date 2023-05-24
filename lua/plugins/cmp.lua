@@ -2,6 +2,7 @@
 local _, cmp = pcall(require, 'cmp')
 local __, lspkind = pcall(require, 'lspkind')
 if not _ or not __ then return end
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
 local has_words_before = function()
   unpack = unpack or table.unpack
@@ -12,6 +13,7 @@ end
 local feedkey = function(key, mode)
   API.nvim_feedkeys(API.nvim_replace_termcodes(key, true, true, true), mode, true)
 end
+
 
 cmp.setup({
   snippet = {
@@ -121,3 +123,8 @@ cmp.setup.cmdline({ '/', '?' }, {
     { name = 'buffer' }
   }
 })
+
+cmp.event:on(
+  'confirm_done',
+  cmp_autopairs.on_confirm_done()
+)

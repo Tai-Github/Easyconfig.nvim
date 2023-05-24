@@ -62,9 +62,13 @@ return require('packer').startup(function()
   -- Git plugin
   use 'lewis6991/gitsigns.nvim'
 
+  -- Competive helper
+  use 'MunifTanjim/nui.nvim'
+  use 'xeluxee/competitest.nvim'
+
   -- Others
+  use 'windwp/nvim-autopairs'
   use 'lukas-reineke/indent-blankline.nvim'
-  use 'jiangmiao/auto-pairs'
   use 'norcalli/nvim-colorizer.lua'
   use 'tpope/vim-surround'
   use 'tpope/vim-commentary'

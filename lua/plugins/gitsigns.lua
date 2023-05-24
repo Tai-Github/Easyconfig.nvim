@@ -1,4 +1,5 @@
 local _, gitsigns = pcall(require, 'gitsigns')
+if not _ then return end
 
 gitsigns.setup {
   signs = {
