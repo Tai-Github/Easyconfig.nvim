@@ -67,6 +67,7 @@ return require('packer').startup(function()
   use 'xeluxee/competitest.nvim'
 
   -- Others
+  -- use 'akinsho/toggleterm.nvim'
   use 'windwp/nvim-autopairs'
   use 'lukas-reineke/indent-blankline.nvim'
   use 'norcalli/nvim-colorizer.lua'
