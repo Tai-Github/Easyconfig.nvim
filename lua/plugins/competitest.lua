@@ -15,8 +15,8 @@ cph.setup {
   testcases_single_file_format = "$(FNOEXT).test",
 }
 
-KEYMAP('n', '<leader>ta', ':CompetiTestAdd<CR>', OPTION1)
-KEYMAP('n', '<leader>tr', ':CompetiTestRun<CR>', OPTION1)
-KEYMAP('n', '<leader>to', ':CompetiTestRunNE<CR>', OPTION1)
-KEYMAP('n', '<leader>te', ':CompetiTestEdit ', OPTION1)
-KEYMAP('n', '<leader>td', ':CompetiTestDelete ', OPTION1)
+KEYMAP('n', '<leader>ta', ':CompetiTest add_testcase<CR>', OPTION1)
+KEYMAP('n', '<leader>tr', ':CompetiTest run<CR>', OPTION1)
+KEYMAP('n', '<leader>to', ':CompetiTest show_ui<CR>', OPTION1)
+KEYMAP('n', '<leader>te', ':CompetiTest edit_testcase ', OPTION1)
+KEYMAP('n', '<leader>td', ':CompetiTest delete_testcase ', OPTION1)

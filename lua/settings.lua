@@ -22,17 +22,17 @@ SET.termguicolors = true                        -- Set term gui colors most term
 SET.expandtab = true                            -- Converts tabs to spaces
 SET.mousemoveevent = true                       -- Enable vim mouse move event
 CMD('autocmd BufWritePre * %s/\\s\\+$//e')      -- Remove trailing whitespace on save
-CMD[[
-let g:clipboard = {
-            \   'name': 'WslClipboard',
-            \   'copy': {
-            \      '+': 'clip.exe',
-            \      '*': 'clip.exe',
-            \    },
-            \   'paste': {
-            \      '+': 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-            \      '*': 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-            \   },
-            \   'cache_enabled': 0,
-            \ }
-]]
+-- CMD[[
+-- let g:clipboard = {
+--             \   'name': 'WslClipboard',
+--             \   'copy': {
+--             \      '+': 'clip.exe',
+--             \      '*': 'clip.exe',
+--             \    },
+--             \   'paste': {
+--             \      '+': 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+--             \      '*': 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+--             \   },
+--             \   'cache_enabled': 0,
+--             \ }
+-- ]]
