@@ -4,9 +4,9 @@
     "body": [
       "#include<bits/stdc++.h>",
       "#define el '\\n'",
-      "#define vec vector",
       "#define ll long long",
-      "#define real double",
+      "#define db double",
+      "#define ldb long double",
       "#define vec vector",
       "using namespace std;",
       "",
