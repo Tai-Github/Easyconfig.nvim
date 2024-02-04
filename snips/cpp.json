@@ -7,7 +7,6 @@
       "#define ll long long",
       "#define db double",
       "#define ldb long double",
-      "#define vec vector",
       "using namespace std;",
       "",
       "int main()",
