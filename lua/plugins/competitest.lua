@@ -4,6 +4,8 @@ if not _ then return end
 local test_dir = '.cpt'
 
 cph.setup {
+  multiple_testing = 0,
+  maximum_time = 1000,
   compile_command = {
     cpp = { exec = "g++", args = { "-Wall", "$(FNAME)", "-o", "./"..test_dir.."/$(FNOEXT)" } }
   },
