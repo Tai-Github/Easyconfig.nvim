@@ -22,7 +22,8 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
   -- Theme
-  use 'tiagovla/tokyodark.nvim'
+  -- use 'tiagovla/tokyodark.nvim'
+  use {'dracula/vim', name = 'dracula' }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
   -- Icon
