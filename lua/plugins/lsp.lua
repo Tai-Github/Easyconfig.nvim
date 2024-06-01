@@ -7,7 +7,18 @@ if not _ or not __ or not ___ then return end
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 mason.setup()
 masonLspconfig.setup {
-  ensure_installed = { 'clangd', 'lua_ls', 'pyright' }
+  ensure_installed = {
+    'clangd',
+    'lua_ls',
+    'pyright',
+    'jsonls',
+
+    -- Web developmnent
+    'tsserver',
+    'html',
+    'cssls',
+    'emmet_language_server'
+  }
 }
 
 masonLspconfig.setup_handlers {
